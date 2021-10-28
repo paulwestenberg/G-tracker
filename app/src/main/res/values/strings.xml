@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">G-tracker</string>
+    <string name="welcomeInfoId">Welcome to the info page</string>
+
 </resources>
