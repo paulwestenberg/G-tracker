@@ -3,9 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_forgot_password.xml" value="9.333333333333334" />
         <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_info.xml" value="0.22" />
-        <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_main.xml" value="0.3333333333333333" />
-        <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_main.xml" value="0.8333333333333334" />
+        <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/activity_register.xml" value="0.7333333333333334" />
         <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/layout/fragment_insert_bin.xml" value="0.3333333333333333" />
         <entry key="..\:/UNIVERSITY/coen 390/AndroidStudioApplication/Gtracker/app/src/main/res/menu/logout_in_login_page.xml" value="0.6" />
       </map>

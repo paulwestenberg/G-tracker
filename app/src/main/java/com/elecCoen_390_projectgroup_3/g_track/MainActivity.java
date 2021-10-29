@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         textPassword = (EditText) findViewById(R.id.passwordId);
         loginBtn= (Button) findViewById(R.id.logInButton);
         loginBtn.setOnClickListener(this);
+        forgotPassword=(TextView)findViewById(R.id.forgotPasswordTextView);
+        forgotPassword.setOnClickListener(this);
         registerTextView= (TextView) findViewById(R.id.registerTextView);
         registerTextView.setOnClickListener(this);
         mAuth= FirebaseAuth.getInstance();
@@ -58,6 +60,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.logInButton:
                 userLogin();
                 break;
+            case R.id.forgotPasswordTextView:
+                startActivity(new Intent(this, ForgotPasswordActivity.class));
         }
     }
 

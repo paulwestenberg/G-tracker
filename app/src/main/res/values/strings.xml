@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">G-tracker</string>
-    <string name="welcomeInfoId">Welcome to the info page</string>
-    <string name="loginName">welcome to profile page </string>
-    <string name="registerName">welcome to register page </string>
-    <string name="logout_button">logout </string>
+    <string name="welcomeInfoId">Information Page</string>
+    <string name="loginName">Profile Page </string>
+    <string name="registerName">Register Page </string>
+    <string name="logout_button">Logout Page </string>
+    <string name="forgotPassword">Forgot Password Page </string>
+    <string name="chars">–‘abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
+
 
 </resources>
