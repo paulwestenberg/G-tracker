@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <!--    add an item to the action bar of the main activity -->
+    <item
+        android:id="@+id/logoutInInfoPage"
+        android:title="@string/logout_button"
+        app:showAsAction="never"
+
+        />
+    <!--    end of the item -->
+
+</menu>

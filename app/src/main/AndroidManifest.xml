@@ -10,10 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gtracker">
         <activity
-            android:name=".InfoActivity"
+            android:name=".RegisterActivity"
+            android:label="@string/registerName"
             android:exported="false"
             android:parentActivityName=".MainActivity"
             />
+        <activity
+            android:name=".InfoActivity"
+            android:exported="false"
+            android:label="@string/loginName"
+
+
+             />
         <activity
             android:name=".MainActivity"
             android:exported="true">
