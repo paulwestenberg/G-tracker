@@ -1,30 +1,51 @@
 package com.elecCoen_390_projectgroup_3.g_track;
 
 public class Sensor {
-    String name;
-    double value;
+    String bincode;
+    String binname;
+    String binlocation;
+    double binvalue;
 
     public Sensor() {
     }
 
-    public Sensor(String name, double value) {
-        this.name = name;
-        this.value = value;
+    public Sensor(String bincode, String name, String location, double value) {
+        this.bincode = bincode;
+        this.binname = name;
+        this.binlocation = location;
+        this.binvalue = value;
+    }
+
+    public String getBinCode(){
+        return bincode;
     }
 
     public String getName() {
-        return name;
+        return binname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getBinLocation(){
+        return binlocation;
     }
 
     public double getValue() {
-        return value;
+        return binvalue;
+    }
+
+    public void setbincode(String bincode) {
+        this.bincode = bincode;
+    }
+
+    public void setbinnumber(String name) {
+        this.binname = name;
+    }
+
+    public void setbinlocation(String location) {
+        this.binlocation = location;
     }
 
     public void setValue(double value) {
-        this.value = value;
+        this.binvalue = value;
     }
 }
+
