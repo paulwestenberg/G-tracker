@@ -16,6 +16,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,12 +25,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class InsertBinDialogFragment extends DialogFragment {
-    protected EditText binCode, binNumber, binLocation;
+    protected EditText binCode, binName, binLocation;
     protected double binValue;
     protected Button saveBin,cancelBin;
     //ProgressBar progressBarRegister2;
     String bincodestring, binnumberstring, binlocationstring;
-    double binvaluedouble;
+    double binvaluedouble=5;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
 
@@ -38,12 +40,12 @@ public class InsertBinDialogFragment extends DialogFragment {
 
         View view= inflater.inflate(R.layout.fragment_insert_bin,container,false);
         binCode= view.findViewById(R.id.editTextBinId);
-        binNumber=view.findViewById(R.id.editTextBinName);
+        binName=view.findViewById(R.id.editTextBinName);
         binLocation=view.findViewById(R.id.editTextLocation);
         saveBin=view.findViewById(R.id.binSaveButton);
         cancelBin=view.findViewById(R.id.binCancelButton);
         binvaluedouble = 5;
-        ref= FirebaseDatabase.getInstance().getReference().child("Bin");
+        ref= FirebaseDatabase.getInstance().getReference();
         mAuth = FirebaseAuth.getInstance();
         //progressBarRegister2=(ProgressBar) findViewById(R.id.progressBarRegister);
 
@@ -55,13 +57,15 @@ public class InsertBinDialogFragment extends DialogFragment {
             @Override
             public void onClick(View view) {
                 sensor.setbincode(binCode.getText().toString().trim());
-                sensor.setbinnumber(binNumber.getText().toString().trim());
+                sensor.setbinname(binName.getText().toString().trim());
                 sensor.setbinlocation(binLocation.getText().toString().trim());
                 sensor.setValue(binValue);
 
-                //need to set some constraints making sure the user has enterred accurate information
+                writeNewBinWithListeners(sensor.getBinCode(),sensor);
+
+                    //need to set some constraints making sure the user has enterred accurate information
                 //ref.setValue(sensor);
-                FirebaseDatabase.getInstance().getReference("Bin").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor);
+                //FirebaseDatabase.getInstance().getReference("Bin").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor);
                 makeText("Bin has been saved to database");
 
             }
@@ -78,6 +82,78 @@ public class InsertBinDialogFragment extends DialogFragment {
     }
 
     private void getAllSensorValues(){
+
+    }
+
+    public void writeNewBinWithListeners(String binCode, Sensor s) {
+        //the bin code will be used to know which bin belongs to which sensor
+        // set bin name
+        /*
+        ref.child("Bins").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Bin Name").setValue(s.getName())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+                    }
+                });
+
+        //set bin location
+        ref.child("Bins").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Bin Location").setValue(s.getBinLocation())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+                    }
+                });
+
+         */
+        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Name").setValue(s.getName())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+                    }
+                });
+
+        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Location").setValue(s.getBinLocation())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+                    }
+                });
 
     }
 /*

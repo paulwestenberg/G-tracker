@@ -28,11 +28,41 @@
         app:srcCompat="@android:drawable/ic_input_add" />
 
     <ListView
-        android:id="@+id/BinListViewid"
-        android:layout_width="360dp"
-        android:layout_height="461dp"
-        android:layout_marginTop="48dp"
+        android:id="@+id/SensorListViewid"
+        android:layout_width="356dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="58dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infoHomeId" />
+
+    <TextView
+        android:id="@+id/textViewlistofsensorsid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="30dp"
+        android:text="List of All Sensors:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infoHomeId" />
+
+    <TextView
+        android:id="@+id/textViewlistofbinsid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="20dp"
+        android:text="List of User's Bins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SensorListViewid" />
+
+    <ListView
+        android:id="@+id/BinListViewid"
+        android:layout_width="356dp"
+        android:layout_height="236dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewlistofbinsid" />
 </androidx.constraintlayout.widget.ConstraintLayout>

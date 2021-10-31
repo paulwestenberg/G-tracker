@@ -25,7 +25,9 @@ import java.util.ArrayList;
 
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
-    private ListView listview;
+    private ListView sensorlistview;
+    private ListView binlistview;
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -49,7 +51,8 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
-        listview = findViewById(R.id.BinListViewid);
+        sensorlistview = findViewById(R.id.SensorListViewid);
+        binlistview = findViewById(R.id.BinListViewid);
 
         addBinFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,20 +63,42 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter adapter = new ArrayAdapter<String>(this , R.layout.list_item , list);
+        ArrayList<String> list_sensor = new ArrayList<>();
+        ArrayAdapter adapter_sensor = new ArrayAdapter<String>(this , R.layout.list_item , list_sensor);
 
-        listview.setAdapter(adapter);
+        sensorlistview.setAdapter(adapter_sensor);
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("sensor");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
+                list_sensor.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list.add(snapshot.getValue().toString());
+                    list_sensor.add(snapshot.getValue().toString());
                 }
-                adapter.notifyDataSetChanged();
+                adapter_sensor.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        ArrayList<String> list_bin = new ArrayList<>();
+        ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
+
+        binlistview.setAdapter(adapter_bin);
+
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                .child("User Bins");
+        reference2.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                list_bin.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    list_bin.add(snapshot.getValue().toString());
+                }
+                adapter_bin.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
