@@ -36,7 +36,7 @@ public class Sensor {
         this.bincode = bincode;
     }
 
-    public void setbinnumber(String name) {
+    public void setbinname(String name) {
         this.binname = name;
     }
 
