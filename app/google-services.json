@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "700370364774",
+    "firebase_url": "https://g-tracker-2770b-default-rtdb.firebaseio.com",
+    "project_id": "g-tracker-2770b",
+    "storage_bucket": "g-tracker-2770b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:700370364774:android:7120c6af686f4a4b9fc0a7",
+        "android_client_info": {
+          "package_name": "com.elecCoen_390_projectgroup_3.g_track"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "700370364774-4a728fqn3bjjrkrvs2al884kpdcpgaur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf3bMqzMVbqeNFxdX0mE5UpinKgX6jqgg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "700370364774-4a728fqn3bjjrkrvs2al884kpdcpgaur.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

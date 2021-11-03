@@ -6,6 +6,36 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <TextView
+        android:id="@+id/contactUsTextView"
+        android:layout_width="87dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Contact Us"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.33"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
+
+    <TextView
+        android:id="@+id/aboutTextView"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="About"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
+
     <Button
         android:id="@+id/logInButton"
         android:layout_width="210dp"
@@ -87,7 +117,7 @@
         android:id="@+id/forgotPasswordTextView"
         android:layout_width="131dp"
         android:layout_height="48dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="24dp"
         android:layout_marginBottom="296dp"
         android:clickable="true"
         android:gravity="center_vertical"
