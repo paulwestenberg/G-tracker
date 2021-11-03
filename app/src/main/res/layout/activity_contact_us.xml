@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactUsActivity">
+
+    <TextView
+        android:id="@+id/contactusTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="50dp"
+        android:text="Contact Us "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/contactusContentTextView"
+        android:layout_width="327dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/contactustext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactusTitleTextView" />
+
+    <TextView
+        android:id="@+id/gtrackeremailTextView"
+        android:layout_width="135dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:text="gtracker@gmail.com"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactusContentTextView" />
+
+    <TextView
+        android:id="@+id/contactusContentContinuedTextView"
+        android:layout_width="319dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/contactuscontinued"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gtrackeremailTextView" />
+
+    <TextView
+        android:id="@+id/contactusPhoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="514-663-1313"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactusContentContinuedTextView" />
+
+    <TextView
+        android:id="@+id/teaminfoTextView"
+        android:layout_width="220dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/TeamInfo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactusPhoneNumberTextView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

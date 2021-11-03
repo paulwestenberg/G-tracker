@@ -49,7 +49,6 @@ public class InsertBinDialogFragment extends DialogFragment {
         mAuth = FirebaseAuth.getInstance();
         //progressBarRegister2=(ProgressBar) findViewById(R.id.progressBarRegister);
 
-
         Sensor sensor = new Sensor();
 
         //to save a bin:
@@ -67,6 +66,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                 //ref.setValue(sensor);
                 //FirebaseDatabase.getInstance().getReference("Bin").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor);
                 makeText("Bin has been saved to database");
+
 
             }
         });
@@ -86,43 +86,7 @@ public class InsertBinDialogFragment extends DialogFragment {
     }
 
     public void writeNewBinWithListeners(String binCode, Sensor s) {
-        //the bin code will be used to know which bin belongs to which sensor
-        // set bin name
-        /*
-        ref.child("Bins").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Bin Name").setValue(s.getName())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        // Write was successful!
-                        // ...
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Write failed
-                        // ...
-                    }
-                });
-
-        //set bin location
-        ref.child("Bins").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("Bin Location").setValue(s.getBinLocation())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        // Write was successful!
-                        // ...
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Write failed
-                        // ...
-                    }
-                });
-
-         */
+        //set bin name:
         ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Name").setValue(s.getName())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
@@ -138,7 +102,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                         // ...
                     }
                 });
-
+        //set bin location:
         ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Location").setValue(s.getBinLocation())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override

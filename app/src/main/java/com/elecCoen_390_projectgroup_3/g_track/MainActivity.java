@@ -4,8 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.os.PatternMatcher;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -18,35 +18,37 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText textEmail,textPassword;
     private Button loginBtn;
-    private TextView forgotPassword,registerTextView;
+    private TextView forgotPasswordTextView,registerTextView,aboutTextView,contactUsTextView;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
     private ProgressBar progressBarLogin;
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.ActionBar)));
+
         progressBarLogin=(ProgressBar)findViewById(R.id.progressBarMain);
         textEmail= (EditText) findViewById(R.id.userNameId);
         textPassword = (EditText) findViewById(R.id.passwordId);
         loginBtn= (Button) findViewById(R.id.logInButton);
         loginBtn.setOnClickListener(this);
-        forgotPassword=(TextView)findViewById(R.id.forgotPasswordTextView);
-        forgotPassword.setOnClickListener(this);
+        forgotPasswordTextView=(TextView)findViewById(R.id.forgotPasswordTextView);
+        forgotPasswordTextView.setOnClickListener(this);
         registerTextView= (TextView) findViewById(R.id.registerTextView);
         registerTextView.setOnClickListener(this);
+        aboutTextView = (TextView) findViewById(R.id.aboutTextView);
+        aboutTextView.setOnClickListener(this);
+        contactUsTextView = (TextView) findViewById(R.id.contactUsTextView);
+        contactUsTextView.setOnClickListener(this);
+
         mAuth= FirebaseAuth.getInstance();
     }
 
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.forgotPasswordTextView:
                 startActivity(new Intent(this, ForgotPasswordActivity.class));
+                break;
+            case R.id.aboutTextView:
+                startActivity(new Intent(this, AboutActivity.class));
+                break;
+            case R.id.contactUsTextView:
+                startActivity(new Intent(this, ContactUsActivity.class));
+
         }
     }
 

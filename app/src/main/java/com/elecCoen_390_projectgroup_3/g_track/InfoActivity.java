@@ -96,7 +96,9 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_bin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_bin.add(snapshot.getValue().toString());
+                    list_bin.add(snapshot.child("Bin Name").getValue().toString()
+                            + ", " + snapshot.child("Bin Location").getValue().toString()
+                            );
                 }
                 adapter_bin.notifyDataSetChanged();
             }

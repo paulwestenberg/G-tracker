@@ -5,7 +5,31 @@
     <string name="registerName">Register Page </string>
     <string name="logout_button">Logout Page </string>
     <string name="forgotPassword">Forgot Password Page </string>
+    <string name="aboutName">About page</string>
+    <string name="contactusName">Contact Us</string>
     <string name="chars">–‘abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
 
+    <string name="abouttext">G-tracker is a device capable of measuring how full a garbage can is and
+        transmitting it onto an application where users (employees) can consult to know which garbage
+        bin needs changing. It also acts as a data collection for a commercial area to potentially modify
+        the location of garbage cans that are often empty, or add garbage cans to locations where they
+        are often full. It is a project born out of Concordia University in Montreal, Canada by
+        6 computer and electrical engineers. Our hopes are that this project will facilitate the job
+        of all cleaning personel and further keep the world clean. Let us know if you have any
+        questions or suggestions by contacting us through our contact us page.</string>
+    <string name="contactustext">If you have any questions, comments, suggestions or business inquiries,
+        please do not hesitate to contact us at:</string>
+    <string name="contactuscontinued"> Or if you wish to call, please do so at: </string>
+    <string name="TeamInfo">
+        Project Team Members: \n\n
+        Mohammed Al-Taie, 40097284 \n
+        Paul Westenberg, 40087074 \n
+        Erfan Reza, 40080730 \n
+        Saro Nokhoudian, 40073669 \n
+        Rifadul Haque, 40107346 \n
+        Jean Mardini, 40031904 \n\n
 
+        Scrum Master:\n
+        Mohammed Sehab\n
+    </string>
 </resources>
