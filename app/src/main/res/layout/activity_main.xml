@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@drawable/login_page">
 
     <TextView
         android:id="@+id/contactUsTextView"
@@ -51,13 +52,13 @@
         android:id="@+id/userNameId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="304dp"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintHorizontal_bias="0.208"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -117,13 +118,14 @@
         android:id="@+id/forgotPasswordTextView"
         android:layout_width="131dp"
         android:layout_height="48dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginStart="88dp"
+        android:layout_marginBottom="120dp"
         android:clickable="true"
         android:gravity="center_vertical"
         android:minHeight="48dp"
         android:text="Forgot Password"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/registerTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>
