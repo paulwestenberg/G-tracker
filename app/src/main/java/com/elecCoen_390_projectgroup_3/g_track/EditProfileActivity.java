@@ -24,6 +24,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     String surNameEditString, nameEditString;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
