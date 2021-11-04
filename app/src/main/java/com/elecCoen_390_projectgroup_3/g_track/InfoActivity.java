@@ -11,6 +11,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -27,6 +28,12 @@ public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView sensorlistview;
     private ListView binlistview;
+    public TextView estimatedCapactityTextView, sumOfDistancesTextView;
+
+    //need to set this to the size of the bin
+    public float BinMaxSize = 58;
+    public float sumOfDistances;
+    public float estimatedcapacity;
 
 
     @Override
@@ -53,6 +60,9 @@ public class InfoActivity extends AppCompatActivity {
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
         sensorlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
+        sumOfDistancesTextView = findViewById(R.id.sumOfDistancesTextView);
+        estimatedCapactityTextView = findViewById(R.id.estimatedCapacityTextView);
+
 
         addBinFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,20 +73,31 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+
+        //make sensor list
         ArrayList<String> list_sensor = new ArrayList<>();
         ArrayAdapter adapter_sensor = new ArrayAdapter<String>(this , R.layout.list_item , list_sensor);
 
         sensorlistview.setAdapter(adapter_sensor);
+
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("sensor");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_sensor.clear();
+                sumOfDistances=0;
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_sensor.add(snapshot.getValue().toString());
+                    list_sensor.add(String.valueOf((Integer.parseInt(snapshot.getValue().toString()))-5));
+
+                    sumOfDistances=sumOfDistances+Integer.parseInt(
+                            String.valueOf((Integer.parseInt(snapshot.getValue().toString()))-5));
                 }
                 adapter_sensor.notifyDataSetChanged();
+                sumOfDistancesTextView.setText("The sum of sensor distances is " + sumOfDistances);
+                estimatedcapacity = ((BinMaxSize-(sumOfDistances/3))/(BinMaxSize))*100;
+                        //(BinMaxSize-(sumOfDistances/3))/BinMaxSize;
+                estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity + "%");
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -84,6 +105,24 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        /*
+        for(int i=1;i<sensorlistview.getCount();i++){
+            sumOfDistances = sumOfDistances + Integer.parseInt(list_sensor.get(i));
+            //makeText(String.valueOf(sumOfDistances));
+        }
+
+         */
+
+        //display estimated % capacity:
+        /*
+        sumOfDistancesTextView.setText("The sum of sensor distances is " + sumOfDistances);
+        estimatedcapacity = (BinMaxSize-sumOfDistances)/BinMaxSize;
+        estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity);
+
+         */
+
+
+        //make bin list
         ArrayList<String> list_bin = new ArrayList<>();
         ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
 
@@ -96,8 +135,8 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_bin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_bin.add(snapshot.child("Bin Name").getValue().toString()
-                            + ", " + snapshot.child("Bin Location").getValue().toString()
+                    list_bin.add(snapshot.child("Bin Name").getValue()
+                            + ", " + snapshot.child("Bin Location").getValue()
                             );
                 }
                 adapter_bin.notifyDataSetChanged();

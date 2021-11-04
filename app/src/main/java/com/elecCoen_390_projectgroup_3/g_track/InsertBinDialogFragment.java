@@ -24,6 +24,8 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class InsertBinDialogFragment extends DialogFragment {
     protected EditText binCode, binName, binLocation;
     protected double binValue;
@@ -60,21 +62,21 @@ public class InsertBinDialogFragment extends DialogFragment {
                 sensor.setbinlocation(binLocation.getText().toString().trim());
                 sensor.setValue(binValue);
 
-                writeNewBinWithListeners(sensor.getBinCode(),sensor);
+                writeNewBinWithListeners(sensor);
 
                     //need to set some constraints making sure the user has enterred accurate information
                 //ref.setValue(sensor);
                 //FirebaseDatabase.getInstance().getReference("Bin").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor);
                 makeText("Bin has been saved to database");
 
-
+                Objects.requireNonNull(getDialog()).dismiss();
             }
         });
 
         cancelBin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDialog().dismiss();
+                Objects.requireNonNull(getDialog()).dismiss();
             }
         });
 //        return super.onCreateView(inflater, container, savedInstanceState);
@@ -85,7 +87,7 @@ public class InsertBinDialogFragment extends DialogFragment {
 
     }
 
-    public void writeNewBinWithListeners(String binCode, Sensor s) {
+    public void writeNewBinWithListeners(Sensor s) {
         //set bin name:
         ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Name").setValue(s.getName())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {

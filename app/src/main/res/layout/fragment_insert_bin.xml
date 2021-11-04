@@ -23,7 +23,6 @@
         android:id="@+id/editTextBinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Enter Bin Name"
         android:inputType="textPersonName"
@@ -31,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBinId" />
+        tools:layout_editor_absoluteY="116dp" />
 
     <EditText
         android:id="@+id/editTextLocation"
@@ -67,4 +66,13 @@
         android:text="Save "
         app:layout_constraintStart_toEndOf="@+id/binCancelButton"
         app:layout_constraintTop_toBottomOf="@+id/editTextLocation" />
+
+    <TextView
+        android:id="@+id/qrScanTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Need help finding the code use: "
+        app:layout_constraintTop_toBottomOf="@+id/editTextBinId"
+        tools:layout_editor_absoluteX="101dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>

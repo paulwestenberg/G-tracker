@@ -29,8 +29,8 @@
 
     <ListView
         android:id="@+id/SensorListViewid"
-        android:layout_width="356dp"
-        android:layout_height="178dp"
+        android:layout_width="359dp"
+        android:layout_height="140dp"
         android:layout_marginTop="58dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,8 +50,8 @@
         android:id="@+id/textViewlistofbinsid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="84dp"
         android:text="List of User's Bins"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/SensorListViewid" />
@@ -65,4 +65,22 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewlistofbinsid" />
+
+    <TextView
+        android:id="@+id/estimatedCapacityTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SensorListViewid" />
+
+    <TextView
+        android:id="@+id/sumOfDistancesTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/SensorListViewid" />
 </androidx.constraintlayout.widget.ConstraintLayout>
