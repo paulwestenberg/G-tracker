@@ -2,9 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <!--    add an item to the action bar of the main activity -->
+
+    <item
+        android:id="@+id/editProfilePage"
+        android:title="@string/editprofiletext"
+        app:showAsAction="never"
+        />
+
     <item
         android:id="@+id/logoutInInfoPage"
-        android:title="@string/logout_button"
+        android:title="@string/logouttext"
         app:showAsAction="never"
 
         />

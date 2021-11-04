@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         setContentView(R.layout.activity_register);
 
         mAuth = FirebaseAuth.getInstance();
-        surName=(EditText)findViewById(R.id.editTextSurname);
+        surName=(EditText)findViewById(R.id.editTextEditSurname);
         name=(EditText)findViewById(R.id.editTextName);
 
         eMail  =(EditText)findViewById(R.id.editTextEmail);

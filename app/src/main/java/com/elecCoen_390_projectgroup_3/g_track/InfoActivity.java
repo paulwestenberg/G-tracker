@@ -43,14 +43,25 @@ public class InfoActivity extends AppCompatActivity {
         return true;
     }
     //end
-    //create the toggle button to toggle between by Id mode or by surname mode
+
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(this, MainActivity.class));
-        makeText("logout");
+        switch (item.getItemId()){
+            case R.id.logoutInInfoPage:
+                FirebaseAuth.getInstance().signOut();
+                startActivity(new Intent(this, MainActivity.class));
+                makeText("You have been logged out");
+                return true;
+            case R.id.editProfilePage:
+                startActivity(new Intent(this, EditProfileActivity.class));
+                makeText("Edit Profile");
+                return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
