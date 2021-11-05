@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity"
-    android:background="@drawable/background">
+    android:background="@drawable/background1">
 
     <EditText
         android:id="@+id/editTextEditSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="140dp"
+        android:layout_marginTop="164dp"
         android:background="@drawable/name"
         android:digits="@string/chars"
         android:ems="10"
