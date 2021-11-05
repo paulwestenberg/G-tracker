@@ -3,8 +3,10 @@ package com.elecCoen_390_projectgroup_3.g_track;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -14,8 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -28,12 +33,18 @@ public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView sensorlistview;
     private ListView binlistview;
-    public TextView estimatedCapactityTextView, sumOfDistancesTextView;
+    public TextView welcomeTextView, estimatedCapactityTextView, sumOfDistancesTextView;
 
     //need to set this to the size of the bin
     public float BinMaxSize = 58;
     public float sumOfDistances;
     public float estimatedcapacity;
+
+    DatabaseReference ref;
+    private FirebaseAuth mAuth;
+
+    public String currentprofilesurname;
+    public String currentprofilename;
 
 
     @Override
@@ -63,17 +74,24 @@ public class InfoActivity extends AppCompatActivity {
 
 
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        welcomeTextView = findViewById(R.id.welcomeMessageTextView);
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
         sensorlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
         sumOfDistancesTextView = findViewById(R.id.sumOfDistancesTextView);
         estimatedCapactityTextView = findViewById(R.id.estimatedCapacityTextView);
 
+        mAuth = FirebaseAuth.getInstance();
+        ref= FirebaseDatabase.getInstance().getReference().child("Users");
+
+//here
+        setWelcomeMessage();
 
         addBinFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,11 +179,44 @@ public class InfoActivity extends AppCompatActivity {
 
     }
 
+    //getting the name and surname and displaying a welcome message to the user
+    private void setWelcomeMessage(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String currentuid = user.getUid();
+        //get surname and name in a string:
+        ref.child(currentuid).child("surname").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    //Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    welcomeTextView.setText("Welcome " + task.getResult().getValue());
 
-//    private void go(){
-//        Intent intent= new Intent(this,InfoActivity.class);
-//        startActivity(intent);
-//    }
+
+                }
+            }
+        });
+
+        ref.child(currentuid).child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    //Log.d("firebase", String.valueOf(task.getResult().getValue()));
+                    welcomeTextView.setText(welcomeTextView.getText() + " " +
+                            task.getResult().getValue());
+
+                }
+            }
+        });
+    }
+
 private void makeText(String s){
     Toast toast = Toast.makeText(this,s,Toast.LENGTH_LONG);
     toast.show();

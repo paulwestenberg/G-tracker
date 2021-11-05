@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">G-tracker</string>
     <string name="welcomeInfoId">Information Page</string>
-    <string name="loginName">Profile Page </string>
+    <string name="loginName">Information Page </string>
     <string name="registerName">Register Page </string>
     <string name="logout_button">Logout Page </string>
     <string name="logouttext">Logout</string>
@@ -9,9 +9,13 @@
 
     <string name="editProfile">Edit Profile Page</string>
     <string name="editprofiletext">Edit Profile</string>
+    <string name="deletemessagecheck">If you would like to delete your profile,
+        input your email and password and press Delete Profile</string>
 
     <string name="aboutName">About page</string>
     <string name="contactusName">Contact Us</string>
+
+
 
     <string name="savechanges">Save Changes</string>
     <string name="cancel">Cancel</string>
