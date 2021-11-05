@@ -68,54 +68,53 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/saveEditsButton" />
 
-    <EditText
-        android:id="@+id/deleteEmailEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:ems="10"
-        android:hint="E-mail"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteProfileTextView" />
+<!--    <EditText-->
+<!--        android:id="@+id/deleteEmailEditText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="12dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="E-mail"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.502"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/deleteProfileTextView" />-->
 
-    <EditText
-        android:id="@+id/deletePasswordEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deleteEmailEditText" />
+<!--    <EditText-->
+<!--        android:id="@+id/deletePasswordEditText"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="4dp"-->
+<!--        android:ems="10"-->
+<!--        android:hint="Password"-->
+<!--        android:inputType="textPersonName"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.502"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/deleteEmailEditText" />-->
 
-    <TextView
-        android:id="@+id/deleteProfileTextView"
-        android:layout_width="361dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/deletemessagecheck"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />
+<!--    <TextView-->
+<!--        android:id="@+id/deleteProfileTextView"-->
+<!--        android:layout_width="361dp"-->
+<!--        android:layout_height="39dp"-->
+<!--        android:layout_marginTop="24dp"-->
+<!--        android:text="@string/deletemessagecheck"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.5"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />-->
 
     <Button
         android:id="@+id/deleteprofilebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="177dp"
         android:backgroundTint="@color/ScaryRed"
         android:text="Delete Profile"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/deletePasswordEditText" />
+        app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />
 
     <ProgressBar
         android:id="@+id/progressBarEditProfile"
