@@ -29,7 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
     private EditText surnameEditText, nameEditText;
-    private EditText deleteemailEditText, deletepasswordEditText;
+    //private EditText deleteemailEditText, deletepasswordEditText;
     private Button saveChangesButton, changePasswordButton, deleteProfileButton;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -52,14 +52,13 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         saveChangesButton = findViewById(R.id.saveEditsButton);
         changePasswordButton = findViewById(R.id.changepasswordbutton);
         deleteProfileButton = findViewById(R.id.deleteprofilebutton);
-        deleteemailEditText = findViewById(R.id.deleteEmailEditText);
-        deletepasswordEditText = findViewById(R.id.deletePasswordEditText);
+        //deleteemailEditText = findViewById(R.id.deleteEmailEditText);
+        //deletepasswordEditText = findViewById(R.id.deletePasswordEditText);
         progressBar = findViewById(R.id.progressBarEditProfile);
 
         saveChangesButton.setOnClickListener(this);
         changePasswordButton.setOnClickListener(this);
         deleteProfileButton.setOnClickListener(this);
-
 
     }
 
@@ -75,7 +74,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                 startActivity(new Intent(this, ForgotPasswordActivity.class));
                 break;
             case R.id.deleteprofilebutton:
-                deleteProfileMethod(deleteemailEditText.getText().toString(), deletepasswordEditText.getText().toString());
+                deleteProfileMethod();
                 break;
         }
     }
@@ -91,13 +90,15 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         makeText("Profile Changes Saved");
     }
 
-    private void deleteProfileMethod(String email,String password) {
+    private void deleteProfileMethod(/*String email,String password*/) {
 
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
         // Get auth credentials from the user for re-authentication. The example below shows
         // email and password credentials but there are multiple possible providers,
         // such as GoogleAuthProvider or FacebookAuthProvider.
+        String email = "yo";
+        String password = "eyo";
         AuthCredential credential = EmailAuthProvider.getCredential(email, password);
 
         AlertDialog.Builder dialog = new AlertDialog.Builder(EditProfileActivity.this);
@@ -114,11 +115,13 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     progressBar.setVisibility(View.GONE);
+                                    // Get User Id
+                                    // Compare User id to Deleted User Id
                                     user.delete().addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
-                                                Log.d("TAG", "User account deleted.");
+                                                //Log.d("TAG", "User account deleted.");
                                                 startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
                                                 makeText("Deleted User Successfully,");
                                             }
