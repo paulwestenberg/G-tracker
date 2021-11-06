@@ -51,18 +51,18 @@ public class InsertBinDialogFragment extends DialogFragment {
         mAuth = FirebaseAuth.getInstance();
         //progressBarRegister2=(ProgressBar) findViewById(R.id.progressBarRegister);
 
-        Sensor sensor = new Sensor();
+        Bin bin = new Bin();
 
         //to save a bin:
         saveBin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sensor.setbincode(binCode.getText().toString().trim());
-                sensor.setbinname(binName.getText().toString().trim());
-                sensor.setbinlocation(binLocation.getText().toString().trim());
-                sensor.setValue(binValue);
+                bin.setbincode(binCode.getText().toString().trim());
+                bin.setbinname(binName.getText().toString().trim());
+                bin.setbinlocation(binLocation.getText().toString().trim());
+                bin.setValue(binValue);
 
-                writeNewBinWithListeners(sensor);
+                writeNewBinWithListeners(bin);
 
                     //need to set some constraints making sure the user has enterred accurate information
                 //ref.setValue(sensor);
@@ -87,9 +87,11 @@ public class InsertBinDialogFragment extends DialogFragment {
 
     }
 
-    public void writeNewBinWithListeners(Sensor s) {
+    public void writeNewBinWithListeners(Bin bin) {
+
         //set bin name:
-        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Name").setValue(s.getName())
+        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(bin.getBinCode()).child("Bin Name").setValue(bin.getName())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -105,7 +107,8 @@ public class InsertBinDialogFragment extends DialogFragment {
                     }
                 });
         //set bin location:
-        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins").child("Bin Code: " + s.getBinCode()).child("Bin Location").setValue(s.getBinLocation())
+        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(bin.getBinCode()).child("Bin Location").setValue(bin.getBinLocation())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
@@ -121,6 +124,23 @@ public class InsertBinDialogFragment extends DialogFragment {
                     }
                 });
 
+        //associate bin with available bins in database:
+        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(bin.getBinCode()).child("Bin Location").setValue(bin.getBinLocation())
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Write was successful!
+                        // ...
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Write failed
+                        // ...
+                    }
+                });
     }
 /*
     private void registerBinMethod() {

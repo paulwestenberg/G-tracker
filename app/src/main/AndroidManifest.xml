@@ -10,10 +10,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gtracker">
         <activity
+            android:name=".Bin"
+            android:exported="false" />
+        <activity
             android:name=".EditProfileActivity"
             android:exported="false"
             android:label="@string/editProfile"
-            android:parentActivityName=".InfoActivity"/>
+            android:parentActivityName=".InfoActivity" />
         <activity
             android:name=".ContactUsActivity"
             android:exported="false"

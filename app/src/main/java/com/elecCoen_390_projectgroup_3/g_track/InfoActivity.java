@@ -31,7 +31,7 @@ import java.util.ArrayList;
 
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
-    private ListView sensorlistview;
+    private ListView allbinlistview;
     private ListView binlistview;
     public TextView welcomeTextView, estimatedCapactityTextView, sumOfDistancesTextView;
 
@@ -82,7 +82,7 @@ public class InfoActivity extends AppCompatActivity {
 
         welcomeTextView = findViewById(R.id.welcomeMessageTextView);
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
-        sensorlistview = findViewById(R.id.SensorListViewid);
+        allbinlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
         sumOfDistancesTextView = findViewById(R.id.sumOfDistancesTextView);
         estimatedCapactityTextView = findViewById(R.id.estimatedCapacityTextView);
@@ -103,30 +103,23 @@ public class InfoActivity extends AppCompatActivity {
         });
 
 
-        //make sensor list
-        ArrayList<String> list_sensor = new ArrayList<>();
-        ArrayAdapter adapter_sensor = new ArrayAdapter<String>(this , R.layout.list_item , list_sensor);
+        //make all available bins list -> will be removed later
+        ArrayList<String> list_allbin = new ArrayList<>();
+        ArrayAdapter adapter_allbin = new ArrayAdapter<String>(this , R.layout.list_item , list_allbin);
 
-        sensorlistview.setAdapter(adapter_sensor);
+        allbinlistview.setAdapter(adapter_allbin);
 
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("sensor");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UnusedBins");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list_sensor.clear();
-                sumOfDistances=0;
+                list_allbin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_sensor.add(String.valueOf((Integer.parseInt(snapshot.getValue().toString()))-5));
+                    list_allbin.add("Bin code: " + snapshot.getKey() + ", average distance " +
+                            snapshot.child("sensors").child("averagedistance").getValue());
 
-                    sumOfDistances=sumOfDistances+Integer.parseInt(
-                            String.valueOf((Integer.parseInt(snapshot.getValue().toString()))-5));
                 }
-                adapter_sensor.notifyDataSetChanged();
-                sumOfDistancesTextView.setText("The sum of sensor distances is " + sumOfDistances);
-                estimatedcapacity = ((BinMaxSize-(sumOfDistances/3))/(BinMaxSize))*100;
-                        //(BinMaxSize-(sumOfDistances/3))/BinMaxSize;
-                estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity + "%");
+                adapter_allbin.notifyDataSetChanged();
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
@@ -134,31 +127,24 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        /*
-        for(int i=1;i<sensorlistview.getCount();i++){
-            sumOfDistances = sumOfDistances + Integer.parseInt(list_sensor.get(i));
-            //makeText(String.valueOf(sumOfDistances));
-        }
-
-         */
-
         //display estimated % capacity:
-        /*
+/*
         sumOfDistancesTextView.setText("The sum of sensor distances is " + sumOfDistances);
-        estimatedcapacity = (BinMaxSize-sumOfDistances)/BinMaxSize;
-        estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity);
+                estimatedcapacity = ((BinMaxSize-(sumOfDistances/3))/(BinMaxSize))*100;
+                        //(BinMaxSize-(sumOfDistances/3))/BinMaxSize;
+                estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity + "%");
+ */
 
-         */
 
 
-        //make bin list
+        //make bin list of the user
         ArrayList<String> list_bin = new ArrayList<>();
         ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
 
         binlistview.setAdapter(adapter_bin);
 
-        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                .child("User Bins");
+        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins");
         reference2.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
