@@ -11,8 +11,8 @@
         android:id="@+id/contactusTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="116dp"
         android:text="Contact Us "
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -24,7 +24,7 @@
         android:layout_marginTop="40dp"
         android:text="@string/contactustext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactusTitleTextView" />
 
@@ -42,10 +42,10 @@
         android:id="@+id/contactusContentContinuedTextView"
         android:layout_width="319dp"
         android:layout_height="21dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:text="@string/contactuscontinued"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gtrackeremailTextView" />
 
