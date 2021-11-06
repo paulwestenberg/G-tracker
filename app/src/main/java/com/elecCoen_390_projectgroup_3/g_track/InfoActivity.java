@@ -33,18 +33,15 @@ public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
     private ListView binlistview;
-    public TextView welcomeTextView, estimatedCapactityTextView, sumOfDistancesTextView;
+    public TextView welcomeTextView;
 
     //need to set this to the size of the bin
     public float BinMaxSize = 58;
-    public float sumOfDistances;
     public float estimatedcapacity;
 
     DatabaseReference ref;
     private FirebaseAuth mAuth;
 
-    public String currentprofilesurname;
-    public String currentprofilename;
 
 
     @Override
@@ -84,8 +81,7 @@ public class InfoActivity extends AppCompatActivity {
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
         allbinlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
-        sumOfDistancesTextView = findViewById(R.id.sumOfDistancesTextView);
-        estimatedCapactityTextView = findViewById(R.id.estimatedCapacityTextView);
+
 
         mAuth = FirebaseAuth.getInstance();
         ref= FirebaseDatabase.getInstance().getReference().child("Users");
@@ -135,13 +131,13 @@ public class InfoActivity extends AppCompatActivity {
                 estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity + "%");
  */
 
-
-
         //make bin list of the user
         ArrayList<String> list_bin = new ArrayList<>();
         ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
 
         binlistview.setAdapter(adapter_bin);
+
+
 
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins");
@@ -150,8 +146,14 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_bin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_bin.add(snapshot.child("Bin Name").getValue()
-                            + ", " + snapshot.child("Bin Location").getValue()
+
+                            //(snapshot.child("sensors").child("averagedistance").getValue()))*100.0)/BinMaxSize;
+                    list_bin.add(
+                            "Name: " + snapshot.child("Bin Name").getValue()
+                            + "\nLocation: " + snapshot.child("Bin Location").getValue()
+                            + "\nAverage Sensor Distance: " + snapshot.child("sensors").child("averagedistance").getValue()
+                            + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue()
+                            + "% full"
                             );
                 }
                 adapter_bin.notifyDataSetChanged();

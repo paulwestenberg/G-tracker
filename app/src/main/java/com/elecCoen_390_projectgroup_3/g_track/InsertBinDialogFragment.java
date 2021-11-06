@@ -21,9 +21,14 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class InsertBinDialogFragment extends DialogFragment {
@@ -32,7 +37,7 @@ public class InsertBinDialogFragment extends DialogFragment {
     protected Button saveBin,cancelBin;
     //ProgressBar progressBarRegister2;
     String bincodestring, binnumberstring, binlocationstring;
-    double binvaluedouble=5;
+    double binvaluedouble=0;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
 
@@ -61,6 +66,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                 bin.setbinname(binName.getText().toString().trim());
                 bin.setbinlocation(binLocation.getText().toString().trim());
                 bin.setValue(binValue);
+
 
                 writeNewBinWithListeners(bin);
 
@@ -106,6 +112,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                         // ...
                     }
                 });
+
         //set bin location:
         ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
                 .child(bin.getBinCode()).child("Bin Location").setValue(bin.getBinLocation())
@@ -125,56 +132,46 @@ public class InsertBinDialogFragment extends DialogFragment {
                 });
 
         //associate bin with available bins in database:
-        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
-                .child(bin.getBinCode()).child("Bin Location").setValue(bin.getBinLocation())
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        // Write was successful!
-                        // ...
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UnusedBins");
+        if ((ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(bin.getBinCode()).getKey() == reference.child(bin.getBinCode()).getKey())
+                && (ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(bin.getBinCode()).getKey() != null)
+                && (reference.child(bin.getBinCode()).getKey() != null)) {
+
+            String key = reference.child(bin.getBinCode()).getKey();
+            Map<String, Object> childUpdates = new HashMap<>();
+
+            DatabaseReference furtherreference = reference.child(bin.getBinCode());
+
+            furtherreference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        //makeText(snapshot.child("distance1").toString());
+                        childUpdates.put("/sensors/distance1", snapshot.child("distance1").getValue());
+                        childUpdates.put("/sensors/distance2", snapshot.child("distance2").getValue());
+                        childUpdates.put("/sensors/distance3", snapshot.child("distance3").getValue());
+                        childUpdates.put("/sensors/averagedistance", snapshot.child("averagedistance").getValue());
+                        childUpdates.put("/sensors/estimatedcapacity", snapshot.child("estimatedcapacity").getValue());
+
+                        ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                                .child(key).updateChildren(childUpdates);
                     }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        // Write failed
-                        // ...
-                    }
-                });
-    }
-/*
-    private void registerBinMethod() {
 
-        bincodestring = binCode.getText().toString().trim();
-        binlocationstring = binLocation.getText().toString().trim();
-        binnumberstring = binNumber.getText().toString().trim();
-        binvaluedouble = 5;
-
-        //need to set constraints such as:
-        //if(!confirmPasswordString.equals(passwordString)){confirmPassword.setError("The password should be the same ");confirmPassword.requestFocus(); return;}
-
-        progressBarRegister2.setVisibility(View.VISIBLE);
-
-        Sensor sensor2 = new Sensor(bincodestring, binlocationstring, binnumberstring, binvaluedouble);
-        FirebaseDatabase.getInstance().getReference("Bins").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor2).addOnCompleteListener(new OnCompleteListener<Void>() {
-            @Override
-            public void onComplete(@NonNull Task<Void> task) {
-                if (task.isSuccessful()) {
-                    Toast toast = Toast.makeText(getActivity(), "Success, bin added", Toast.LENGTH_LONG);
-                    toast.show();
-                    progressBarRegister2.setVisibility(View.GONE);
-                    //startActivity(new Intent(RegisterActivity.this, InfoActivity.class));
-                    // redirection to the login lauoyt
-                }
-                else {
-                    progressBarRegister2.setVisibility(View.GONE);
                 }
 
-            }
-                    });
-    }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    //canceled
+                }
+            });
 
- */
+        } else {
+            makeText("It seems this bin code is incorrect or not in the system yet");
+        }
+    }
 
 
     private void makeText(String s){
