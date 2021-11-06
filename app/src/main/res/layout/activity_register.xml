@@ -102,21 +102,23 @@
 
     <Button
         android:id="@+id/saveRegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
+        android:layout_width="136dp"
+        android:layout_height="59dp"
+        android:layout_marginStart="52dp"
         android:layout_marginTop="36dp"
-        android:text="Register"
+        android:background="@drawable/register_btn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
 
     <Button
         android:id="@+id/cancelRegisterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="136dp"
+        android:layout_height="60dp"
         android:layout_marginTop="36dp"
-        android:layout_marginEnd="68dp"
-        android:text="Cancel"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/cancel_btn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/saveRegisterButton"
         app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword" />
 </androidx.constraintlayout.widget.ConstraintLayout>
