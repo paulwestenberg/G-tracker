@@ -28,12 +28,12 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class EditProfileActivity extends AppCompatActivity implements View.OnClickListener{
 
-    private EditText surnameEditText, nameEditText;
+    private EditText surnameEditText, nameEditText,currentPasswordEditProfile,newPasswordEditProfile;
     //private EditText deleteemailEditText, deletepasswordEditText;
     private Button saveChangesButton, changePasswordButton, deleteProfileButton;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
-    public String surNameEditString, nameEditString;
+    public String surNameEditString, nameEditString,currentPasswordEditProfileString,newPasswordEditProfileString;
     ProgressBar progressBar;
 
 
@@ -49,16 +49,21 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         surnameEditText = findViewById(R.id.editTextEditSurname);
         nameEditText = findViewById(R.id.editTextEditName);
-        saveChangesButton = findViewById(R.id.saveEditsButton);
-        changePasswordButton = findViewById(R.id.changepasswordbutton);
-        deleteProfileButton = findViewById(R.id.deleteprofilebutton);
+
         //deleteemailEditText = findViewById(R.id.deleteEmailEditText);
         //deletepasswordEditText = findViewById(R.id.deletePasswordEditText);
         progressBar = findViewById(R.id.progressBarEditProfile);
 
+        saveChangesButton = findViewById(R.id.saveEditsButton);
         saveChangesButton.setOnClickListener(this);
+
+        changePasswordButton = findViewById(R.id.changepasswordbutton);
         changePasswordButton.setOnClickListener(this);
+
+        deleteProfileButton = findViewById(R.id.deleteprofilebutton);
+//        deleteProfileButton.setEnabled(false);
         deleteProfileButton.setOnClickListener(this);
+
 
     }
 
@@ -68,10 +73,9 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         switch (v.getId()){
             case R.id.saveEditsButton:
                 editUserMethod();
-                startActivity(new Intent(this, InfoActivity.class ));
                 break;
             case R.id.changepasswordbutton:
-                startActivity(new Intent(this, ForgotPasswordActivity.class));
+                changePassword();
                 break;
             case R.id.deleteprofilebutton:
                 deleteProfileMethod();
@@ -82,18 +86,61 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     private void editUserMethod(){
         surNameEditString=surnameEditText.getText().toString().trim();
         nameEditString=nameEditText.getText().toString().trim();
+
+        if(surNameEditString.isEmpty()){surnameEditText.setError("Fill the Surname Please!");surnameEditText.requestFocus(); return;}
+        if(nameEditString.isEmpty()){nameEditText.setError("Fill the Name Please!");nameEditText.requestFocus(); return;}
+        if(!surNameEditString.isEmpty()&& !nameEditString.isEmpty()){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String currentuid = user.getUid();
-        ref.child(currentuid).child("surname").setValue(surNameEditString);
-        ref.child(currentuid).child("name").setValue(nameEditString);
-
+        String currentUid = user.getUid();
+        ref.child(currentUid).child("surname").setValue(surNameEditString);
+        ref.child(currentUid).child("name").setValue(nameEditString);
+        startActivity(new Intent(this, InfoActivity.class ));
+        finish();
         makeText("Profile Changes Saved");
+        }
     }
+    private void changePassword(){
+        currentPasswordEditProfile=findViewById(R.id.currentPasswordEditProfile);
+        newPasswordEditProfile=findViewById(R.id.newPasswordEditProfile);
 
+        currentPasswordEditProfileString=currentPasswordEditProfile.getText().toString().trim();
+        newPasswordEditProfileString=newPasswordEditProfile.getText().toString().trim();
+        if(currentPasswordEditProfileString.isEmpty()&& currentPasswordEditProfileString.length()<6){currentPasswordEditProfile.setError("Please Enter your current password");currentPasswordEditProfile.requestFocus() ;return;}
+        if(newPasswordEditProfileString.isEmpty()){newPasswordEditProfile.setError("Please Enter your current password");newPasswordEditProfile.requestFocus() ;return;}
+        if(currentPasswordEditProfileString.equals(newPasswordEditProfileString)){makeText("the new password is similar ");return;}
+
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), currentPasswordEditProfileString);
+        progressBar.setVisibility(View.VISIBLE);
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                            FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+                            user.updatePassword(newPasswordEditProfileString);
+                            startActivity(new Intent(EditProfileActivity.this, InfoActivity.class ));
+                            finish();
+                            makeText("New password has been set");
+
+                        }
+                        else{
+                            makeText("Reauthentication failed");
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }
+                });
+
+
+//        startActivity(new Intent(this, InfoActivity.class ));
+//        finish();
+//        makeText("Profile Changes Saved");
+    }
     private void deleteProfileMethod(/*String email,String password*/) {
 
-        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
 
+        final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        
         // Get auth credentials from the user for re-authentication. The example below shows
         // email and password credentials but there are multiple possible providers,
         // such as GoogleAuthProvider or FacebookAuthProvider.
@@ -144,6 +191,27 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
         AlertDialog alertDialog = dialog.create();
         alertDialog.show();
 
+    }
+    private void deleteButtonVisibility(){
+        if(currentPasswordEditProfileString.isEmpty()&& currentPasswordEditProfileString.length()<6){currentPasswordEditProfile.setError("Please Enter your current password");currentPasswordEditProfile.requestFocus();return;}
+        FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
+        AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), currentPasswordEditProfileString);
+        progressBar.setVisibility(View.VISIBLE);
+        user.reauthenticate(credential)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+
+                            makeText("the password is good you can dellet");
+
+                        }
+                        else{
+                            makeText("make sure that you know the passwrod");
+                            progressBar.setVisibility(View.GONE);
+                        }
+                    }
+                });
     }
 
     private void makeText(String s){

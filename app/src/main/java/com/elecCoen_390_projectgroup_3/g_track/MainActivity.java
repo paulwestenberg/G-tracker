@@ -102,6 +102,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 else
                     makeText("Please check your Email and Password!  ");
+                progressBarLogin.setVisibility(View.GONE);
             }
         });
     }

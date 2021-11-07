@@ -11,18 +11,56 @@
         android:id="@+id/editTextEditSurname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginTop="156dp"
+        android:background="@drawable/name"
         android:digits="@string/chars"
         android:ems="10"
         android:hint="Surname"
-        android:background="@drawable/name"
-        android:paddingLeft="60dp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:paddingLeft="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.248"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/currentPasswordEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+
+        android:background="@drawable/password_login"
+        android:ems="10"
+        android:hint="Enter current password"
+        android:inputType="textPersonName|textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="60dp"
+
+        android:password="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/saveEditsButton" />
+
+    <EditText
+        android:id="@+id/newPasswordEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/password_login"
+
+        android:ems="10"
+        android:hint="Enter new password"
+        android:inputType="textPersonName|textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="60dp"
+        android:password="true"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.248"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentPasswordEditProfile" />
 
     <ProgressBar
         android:id="@+id/progressBarRegister"
@@ -39,46 +77,20 @@
         android:id="@+id/editTextEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/name"
         android:digits="@string/chars"
         android:ems="10"
         android:hint="Name"
-        android:background="@drawable/name"
-        android:paddingLeft="60dp"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:paddingLeft="60dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.248"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextEditSurname" />
 
-    <Button
-        android:id="@+id/saveEditsButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:background="@drawable/save_changes_button"
-        android:fontFamily="sans-serif-black"
-
-        android:textAlignment="center"
-        android:textColor="#227D11"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextEditName" />
-
-    <Button
-        android:id="@+id/changepasswordbutton"
-        android:background="@drawable/change_password_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveEditsButton" />
-
-<!--    <EditText-->
+    <!--    <EditText-->
 <!--        android:id="@+id/deleteEmailEditText"-->
 <!--        android:layout_width="wrap_content"-->
 <!--        android:layout_height="wrap_content"-->
@@ -116,13 +128,42 @@
 <!--        app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />-->
 
     <Button
+        android:id="@+id/saveEditsButton"
+        android:layout_width="275dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/save_changes_button"
+        android:fontFamily="sans-serif-black"
+
+
+        android:textAlignment="center"
+        android:textColor="#227D11"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextEditName" />
+
+    <Button
+        android:id="@+id/changepasswordbutton"
+        android:layout_width="273dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/change_password_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newPasswordEditProfile" />
+
+    <Button
         android:id="@+id/deleteprofilebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="@color/ScaryRed"
         android:text="Delete Profile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.358"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />
 
