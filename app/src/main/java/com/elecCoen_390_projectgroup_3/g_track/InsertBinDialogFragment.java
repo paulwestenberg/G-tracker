@@ -70,7 +70,7 @@ public class InsertBinDialogFragment extends DialogFragment {
 
                 writeNewBinWithListeners(bin);
 
-                    //need to set some constraints making sure the user has enterred accurate information
+                //need to set some constraints making sure the user has enterred accurate information
                 //ref.setValue(sensor);
                 //FirebaseDatabase.getInstance().getReference("Bin").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).setValue(sensor);
                 makeText("Bin has been saved to database");
@@ -179,3 +179,4 @@ public class InsertBinDialogFragment extends DialogFragment {
         toast.show();
     }
 }
+

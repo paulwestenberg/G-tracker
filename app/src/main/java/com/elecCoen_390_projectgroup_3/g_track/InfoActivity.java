@@ -1,12 +1,11 @@
 package com.elecCoen_390_projectgroup_3.g_track;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.icu.text.DecimalFormat;
+
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -30,17 +29,18 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.math.BigDecimal;
 import java.util.ArrayList;
 
-@RequiresApi(api = Build.VERSION_CODES.N)
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
     private ListView binlistview;
     public TextView welcomeTextView;
 
+
+
     //Be able to round the estimated capacity to 2 digits after period:
+    String RoundedValueofEC = "N/A";
 
     //need to set this to the size of the bin
     public float BinMaxSize = 58;
@@ -48,7 +48,6 @@ public class InfoActivity extends AppCompatActivity {
 
     DatabaseReference ref;
     private FirebaseAuth mAuth;
-
 
 
     @Override
@@ -157,12 +156,19 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_bin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+                    if (snapshot.child("sensors").child("estimatedcapacity").getValue()!=null){
+                        RoundedValueofEC = String.valueOf(Math.round(
+                                Float.parseFloat(snapshot.child("sensors").child("estimatedcapacity").getValue().toString())
+                        ));
+                    }
                     list_bin.add(
                             "Name: " + snapshot.child("Bin Name").getValue()
                             + "\nLocation: " + snapshot.child("Bin Location").getValue()
-                            + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue()
+                            + "\nEstimated Capacity: " + RoundedValueofEC
                             + "%"
                             );
+                    //reset value of sensor display
+                    RoundedValueofEC = "N/A";
                 }
                 adapter_bin.notifyDataSetChanged();
             }
