@@ -1,10 +1,13 @@
 package com.elecCoen_390_projectgroup_3.g_track;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.icu.text.DecimalFormat;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -27,13 +30,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
     private ListView binlistview;
     public TextView welcomeTextView;
+
+    //Be able to round the estimated capacity to 2 digits after period:
 
     //need to set this to the size of the bin
     public float BinMaxSize = 58;
@@ -111,8 +118,12 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_allbin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    list_allbin.add("Bin code: " + snapshot.getKey() + ", average distance " +
-                            snapshot.child("sensors").child("averagedistance").getValue());
+                    list_allbin.add("Bin code: " + snapshot.getKey()
+                    + "\nDistance1: " + snapshot.child("sensors").child("distance1").getValue()
+                    + "\nDistance2: " + snapshot.child("sensors").child("distance2").getValue()
+                    + "\nDistance3: " + snapshot.child("sensors").child("distance3").getValue()
+                    + "\nAverage distance: " + snapshot.child("sensors").child("averagedistance").getValue()
+                    + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue());
 
                 }
                 adapter_allbin.notifyDataSetChanged();
@@ -146,14 +157,11 @@ public class InfoActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 list_bin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-
-                            //(snapshot.child("sensors").child("averagedistance").getValue()))*100.0)/BinMaxSize;
                     list_bin.add(
                             "Name: " + snapshot.child("Bin Name").getValue()
                             + "\nLocation: " + snapshot.child("Bin Location").getValue()
-                            + "\nAverage Sensor Distance: " + snapshot.child("sensors").child("averagedistance").getValue()
                             + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue()
-                            + "% full"
+                            + "%"
                             );
                 }
                 adapter_bin.notifyDataSetChanged();
