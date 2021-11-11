@@ -1,24 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/ScrollView"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintVertical_bias="0.634"
     android:background="@drawable/login_page"
-    tools:ignore="SpeakableTextPresentCheck">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
-
+    tools:context=".MainActivity"
+    xmlns:android="http://schemas.android.com/apk/res/android">
         <TextView
             android:id="@+id/contactUsTextView"
             android:layout_width="87dp"
@@ -33,21 +20,23 @@
             app:layout_constraintStart_toEndOf="@+id/aboutTextView"
             app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
 
-        <TextView
-            android:id="@+id/aboutTextView"
-            android:layout_width="48dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="12dp"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:minHeight="48dp"
-            android:text="About"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/forgotPasswordTextView"
-            app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
+    <TextView
+        android:id="@+id/aboutTextView"
+        android:layout_width="48dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="About"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/forgotPasswordTextView"
+        app:layout_constraintTop_toBottomOf="@+id/registerTextView"
+        app:layout_constraintVertical_bias="0.0" />
 
-        <TextView
+    <TextView
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -110,7 +99,7 @@
             android:id="@+id/userNameId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="368dp"
+            android:layout_marginTop="316dp"
             android:background="@drawable/email_login"
             android:ems="10"
             android:hint="E-mail"
@@ -118,7 +107,7 @@
             android:minHeight="48dp"
             android:paddingLeft="60dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.216"
+            app:layout_constraintHorizontal_bias="0.186"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -151,17 +140,8 @@
             app:layout_constraintTop_toBottomOf="@+id/passwordId"
             tools:ignore="SpeakableTextPresentCheck" />
 
-        <View
-            android:id="@+id/divider"
-            android:layout_width="391dp"
-            android:layout_height="1dp"
-            android:layout_marginTop="116dp"
-            android:background="?android:attr/listDivider"
-            app:layout_constraintTop_toBottomOf="@+id/aboutTextView"
-            tools:layout_editor_absoluteX="13dp" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+
 
 
 
