@@ -4,12 +4,12 @@ public class Bin {
     String bincode;
     String binname;
     String binlocation;
-    double binvalue;
+    String binvalue;
 
     public Bin() {
     }
 
-    public Bin(String bincode, String name, String location, double value) {
+    public Bin(String bincode, String name, String location, String value) {
         this.bincode = bincode;
         this.binname = name;
         this.binlocation = location;
@@ -28,7 +28,7 @@ public class Bin {
         return binlocation;
     }
 
-    public double getValue() {
+    public String getValue() {
         return binvalue;
     }
 
@@ -44,7 +44,7 @@ public class Bin {
         this.binlocation = location;
     }
 
-    public void setValue(double value) {
+    public void setValue(String value) {
         this.binvalue = value;
     }
 }

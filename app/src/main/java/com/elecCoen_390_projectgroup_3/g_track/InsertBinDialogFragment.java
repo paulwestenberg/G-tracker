@@ -27,19 +27,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
 public class InsertBinDialogFragment extends DialogFragment {
     protected EditText binCode, binName, binLocation;
-    protected double binValue;
+    protected String binValue;
     protected Button saveBin,cancelBin;
     //ProgressBar progressBarRegister2;
     String bincodestring, binnumberstring, binlocationstring;
     double binvaluedouble=0;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
+    boolean checker = false;
 
     @Nullable
     @Override
@@ -132,17 +134,19 @@ public class InsertBinDialogFragment extends DialogFragment {
                 });
 
         //associate bin with available bins in database:
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("UnusedBins");
-        if ((ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
-                .child(bin.getBinCode()).getKey() == reference.child(bin.getBinCode()).getKey())
-                && (ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
-                .child(bin.getBinCode()).getKey() != null)
-                && (reference.child(bin.getBinCode()).getKey() != null)) {
+        DatabaseReference reffreebin = ref.child("UnusedBins");
+        DatabaseReference refcurrentuser = ref.child("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid());
 
-            String key = reference.child(bin.getBinCode()).getKey();
+        if ((reffreebin.child(bin.getBinCode()).getKey() != null) &&
+                (refcurrentuser.child("User Bins").child(bin.getBinCode()).getKey()
+                == reffreebin.child(bin.getBinCode()).getKey())
+                && (refcurrentuser.child("User Bins").child(bin.getBinCode()).getKey() != null)
+                ) {
+
+            String key = reffreebin.child(bin.getBinCode()).getKey();
             Map<String, Object> childUpdates = new HashMap<>();
 
-            DatabaseReference furtherreference = reference.child(bin.getBinCode());
+            DatabaseReference furtherreference = reffreebin.child(bin.getBinCode());
 
             furtherreference.addValueEventListener(new ValueEventListener() {
                 @Override

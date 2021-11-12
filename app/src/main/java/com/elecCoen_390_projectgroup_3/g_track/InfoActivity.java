@@ -38,9 +38,11 @@ public class InfoActivity extends AppCompatActivity {
     public TextView welcomeTextView;
 
 
+    private static final String TAG = "InfoActivity";
+
 
     //Be able to round the estimated capacity to 2 digits after period:
-    String RoundedValueofEC = "N/A";
+    public String RoundedValueofEC = "N/A";
 
     //need to set this to the size of the bin
     public float BinMaxSize = 58;
@@ -92,7 +94,7 @@ public class InfoActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         ref= FirebaseDatabase.getInstance().getReference().child("Users");
 
-//here
+
         setWelcomeMessage();
 
         addBinFloatingButton.setOnClickListener(new View.OnClickListener() {
@@ -142,12 +144,11 @@ public class InfoActivity extends AppCompatActivity {
  */
 
         //make bin list of the user
+        /*
         ArrayList<String> list_bin = new ArrayList<>();
         ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
 
         binlistview.setAdapter(adapter_bin);
-
-
 
         DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users")
                 .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins");
@@ -178,6 +179,68 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+         */
+
+        //attempt to make new list view:
+        //with list_bin:
+        ArrayList<Bin> new_list_bin = new ArrayList<>();
+        BinListAdapter new_adapter_bin = new BinListAdapter(this, R.layout.bin_item, new_list_bin);
+
+        binlistview.setAdapter(new_adapter_bin);
+
+        DatabaseReference reference3 = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins");
+        reference3.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                new_list_bin.clear();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
+
+                    if (snapshot.child("sensors").child("estimatedcapacity").getValue()!=null) {
+                        RoundedValueofEC = String.valueOf(Math.round(
+                                Double.parseDouble(snapshot.child("sensors").child("estimatedcapacity").getValue().toString()))
+                        );
+                    }
+                        //makeText(snapshot.child("Bin Code").getValue().toString());
+                    if ((snapshot.child("Bin Name").getValue()!=null) &&
+                            (snapshot.child("Bin Location").getValue()!=null) &&
+                            (snapshot.getKey()!=null)){
+
+                        Bin new_bin = new Bin(snapshot.getKey(),
+                                snapshot.child("Bin Name").getValue().toString(),
+                                snapshot.child("Bin Location").getValue().toString(),
+                                RoundedValueofEC);
+                        new_list_bin.add(new_bin);
+                    }
+                    //there is a slight timing problem in the app
+                    //when the user inputs a bin it takes a millisecond but the table
+                    //tries to load it automatically, resulting in an error
+                    //thus, setting these temp value below is key to obtaining
+                    //that 0.0001 second delay
+                    else {
+                        Bin new_bin = new Bin("W", "A", "I", "T");
+                        new_list_bin.add(new_bin);
+                    }
+
+
+
+                            /*
+                            "Name: " + snapshot.child("Bin Name").getValue()
+                                    + "\nLocation: " + snapshot.child("Bin Location").getValue()
+                                    + "\nEstimated Capacity: " + RoundedValueofEC
+                                    + "%"
+
+                             */
+                    //reset value of sensor display
+                    RoundedValueofEC = "N/A";
+                }
+                new_adapter_bin.notifyDataSetChanged();
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
 
