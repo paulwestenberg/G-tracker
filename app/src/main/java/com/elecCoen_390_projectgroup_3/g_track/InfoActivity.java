@@ -120,11 +120,11 @@ public class InfoActivity extends AppCompatActivity {
                 list_allbin.clear();
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     list_allbin.add("Bin code: " + snapshot.getKey()
-                    + "\nDistance1: " + snapshot.child("sensors").child("distance1").getValue()
-                    + "\nDistance2: " + snapshot.child("sensors").child("distance2").getValue()
-                    + "\nDistance3: " + snapshot.child("sensors").child("distance3").getValue()
-                    + "\nAverage distance: " + snapshot.child("sensors").child("averagedistance").getValue()
-                    + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue());
+                    + "\nDistance1: " + snapshot.child("sensors").child("distance1").getValue() + " cm"
+                    + "\nDistance2: " + snapshot.child("sensors").child("distance2").getValue() + " cm"
+                    + "\nDistance3: " + snapshot.child("sensors").child("distance3").getValue() + " cm"
+                    + "\nAverage distance: " + snapshot.child("sensors").child("averagedistance").getValue() + " cm"
+                    + "\nEstimated Capacity: " + snapshot.child("sensors").child("estimatedcapacity").getValue() + "%");
 
                 }
                 adapter_allbin.notifyDataSetChanged();

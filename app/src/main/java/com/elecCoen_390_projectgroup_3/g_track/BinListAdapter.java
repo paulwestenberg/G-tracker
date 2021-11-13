@@ -56,7 +56,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
 
         binNameTV.setText("Name: " + binName);
         binLocationTV.setText("Location: " + binLocation);
-        binECTV.setText("Estimated Capacity: " + binEC);
+        binECTV.setText("Estimated Capacity: " + binEC + "%");
 
         //double EC_double = Double.parseDouble(binEC);
         //now set the image:

@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="ActionBar">#4CAF50</color>
     <color name="ScaryRed">#FA1B1B</color>
+    <color name="appbackground">#D3ECDF</color>
 </resources>
+

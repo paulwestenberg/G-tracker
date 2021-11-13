@@ -54,8 +54,8 @@
 
     <Button
         android:id="@+id/binCancelButton"
-        android:layout_width="92dp"
-        android:layout_height="37dp"
+        android:layout_width="102dp"
+        android:layout_height="36dp"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="120dp"
         android:background="@drawable/small_btn"
@@ -63,21 +63,22 @@
         android:textColor="#6DAFBC"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintHorizontal_bias="0.33"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/editTextLocation"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/binSaveButton"
-        android:layout_width="92dp"
-        android:layout_height="37dp"
+        android:layout_width="102dp"
+        android:layout_height="36dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/small_btn"
         android:text="Save "
         android:textColor="#6DAFBC"
         app:layout_constraintBottom_toTopOf="@+id/guideline4"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.912"
+        app:layout_constraintHorizontal_bias="0.917"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/editTextLocation"
         app:layout_constraintVertical_bias="0.0" />
