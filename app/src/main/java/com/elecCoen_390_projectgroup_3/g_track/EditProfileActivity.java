@@ -105,8 +105,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         currentPasswordEditProfileString=currentPasswordEditProfile.getText().toString().trim();
         newPasswordEditProfileString=newPasswordEditProfile.getText().toString().trim();
-        if(currentPasswordEditProfileString.isEmpty()&& currentPasswordEditProfileString.length()<6){currentPasswordEditProfile.setError("Please Enter your current password");currentPasswordEditProfile.requestFocus() ;return;}
-        if(newPasswordEditProfileString.isEmpty()){newPasswordEditProfile.setError("Please Enter your current password");newPasswordEditProfile.requestFocus() ;return;}
+        if(currentPasswordEditProfileString.isEmpty()){currentPasswordEditProfile.setError("Please Enter your current password");currentPasswordEditProfile.requestFocus() ;return;}
+        if(currentPasswordEditProfileString.length()<6){currentPasswordEditProfile.setError("Your current password has to be more than 6 Characters");currentPasswordEditProfile.requestFocus() ;return;}
+        if(newPasswordEditProfileString.isEmpty()){newPasswordEditProfile.setError("Please Enter your new password");newPasswordEditProfile.requestFocus() ;return;}
+        if(newPasswordEditProfileString.length()<6){newPasswordEditProfile.setError("Your new password has to be more than 6 Characters");newPasswordEditProfile.requestFocus() ;return;}
         if(currentPasswordEditProfileString.equals(newPasswordEditProfileString)){makeText("the new password is similar ");return;}
 
         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();

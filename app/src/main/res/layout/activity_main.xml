@@ -1,30 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
-    android:layout_height="match_parent"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@drawable/login_page"
-    tools:context=".MainActivity"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-        <TextView
-            android:id="@+id/contactUsTextView"
-            android:layout_width="87dp"
-            android:layout_height="49dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="12dp"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:minHeight="48dp"
-            android:text="Contact Us"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/aboutTextView"
-            app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
+    android:id="@+id/ScrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintVertical_bias="0.634"
+    android:background="@drawable/background"
+    tools:ignore="SpeakableTextPresentCheck">
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:text="Don't have an account?"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton" />
+
+    <TextView
+        android:id="@+id/registerTextView"
+        android:layout_width="63dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Register"
+        android:textColor="#2AB97E"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton" />
+
+    <TextView
+        android:id="@+id/nowid"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="28dp"
+        android:text="now!"
+        app:layout_constraintStart_toEndOf="@+id/registerTextView"
+        app:layout_constraintTop_toBottomOf="@+id/logInButton" />
+
+    <TextView
+        android:id="@+id/forgotPasswordTextView"
+        android:layout_width="120dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Forgot Password?"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
+
+    <TextView
+        android:id="@+id/contactUsTextView"
+        android:layout_width="87dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:gravity="center_vertical"
+        android:minHeight="48dp"
+        android:text="Contact Us"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/aboutTextView"
+        app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
 
     <TextView
         android:id="@+id/aboutTextView"
         android:layout_width="48dp"
         android:layout_height="49dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:clickable="true"
         android:gravity="center_vertical"
@@ -34,114 +96,93 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/forgotPasswordTextView"
         app:layout_constraintTop_toBottomOf="@+id/registerTextView"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.061" />
+
+    <ProgressBar
+        android:id="@+id/progressBarMain"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/userNameId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/email_login"
+        android:ems="10"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:paddingLeft="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/passwordId"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.356"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/logInButton"
+        android:layout_width="129dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/big_btn"
+        android:text="Login"
+        android:textColor="#6DAFBC"
+        app:layout_constraintEnd_toEndOf="@+id/passwordId"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/passwordId"
+        app:layout_constraintTop_toBottomOf="@+id/passwordId"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/passwordId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="26dp"
+        android:background="@drawable/password_login"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPersonName|textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="60dp"
+        android:password="true"
+        app:layout_constraintBottom_toTopOf="@+id/logInButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userNameId"
+        app:layout_constraintVertical_bias="0.061" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
 
     <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
-            android:text="Don't have an account?"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/logInButton" />
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="108dp"
+        android:text="TextView"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/aboutTextView" />
 
-        <ProgressBar
-            android:id="@+id/progressBarMain"
-            style="?android:attr/progressBarStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/registerTextView"
-            android:layout_width="63dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="16dp"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:minHeight="48dp"
-            android:text="Register"
-            android:textColor="#2AB97E"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toBottomOf="@+id/logInButton" />
-
-        <TextView
-            android:id="@+id/forgotPasswordTextView"
-            android:layout_width="120dp"
-            android:layout_height="48dp"
-            android:layout_marginStart="24dp"
-            android:layout_marginTop="12dp"
-            android:clickable="true"
-            android:gravity="center_vertical"
-            android:minHeight="48dp"
-            android:text="Forgot Password?"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/registerTextView" />
-
-        <TextView
-            android:id="@+id/nowid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="now!"
-            app:layout_constraintStart_toEndOf="@+id/registerTextView"
-            app:layout_constraintTop_toBottomOf="@+id/logInButton" />
-
-        <EditText
-            android:id="@+id/userNameId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="316dp"
-            android:background="@drawable/email_login"
-            android:ems="10"
-            android:hint="E-mail"
-            android:inputType="textPersonName"
-            android:minHeight="48dp"
-            android:paddingLeft="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.186"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/passwordId"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:background="@drawable/password_login"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPersonName|textPassword"
-            android:minHeight="48dp"
-            android:paddingLeft="60dp"
-            android:password="true"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/userNameId"
-            app:layout_constraintVertical_bias="0.061" />
-
-        <Button
-            android:id="@+id/logInButton"
-            android:layout_width="303dp"
-            android:layout_height="68dp"
-            android:layout_marginTop="36dp"
-            android:background="@drawable/login_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.148"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/passwordId"
-            tools:ignore="SpeakableTextPresentCheck" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
+</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
 
 
 

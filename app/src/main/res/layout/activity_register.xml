@@ -31,9 +31,7 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.503"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/editTextName"
             app:layout_constraintTop_toTopOf="parent" />
 
         <ProgressBar
@@ -59,8 +57,7 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/editTextEmail"
             app:layout_constraintTop_toBottomOf="@+id/editTextEditSurname" />
 
         <EditText
@@ -74,9 +71,7 @@
             android:inputType="textWebEmailAddress|textEmailAddress|textEmailSubject"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/editTextPassword"
             app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
         <EditText
@@ -108,28 +103,31 @@
             android:inputType="textPassword|textWebPassword"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/editTextConfirmPassword"
             app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
         <Button
             android:id="@+id/saveRegisterButton"
-            android:layout_width="136dp"
-            android:layout_height="59dp"
-            android:layout_marginStart="52dp"
+            android:layout_width="138dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="44dp"
             android:layout_marginTop="36dp"
-            android:background="@drawable/register_btn"
+            android:background="@drawable/small_btn"
+            android:text="Save"
+            android:textColor="#6DAFBC"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
             tools:ignore="SpeakableTextPresentCheck" />
 
         <Button
             android:id="@+id/cancelRegisterButton"
-            android:layout_width="136dp"
-            android:layout_height="60dp"
+            android:layout_width="138dp"
+            android:layout_height="46dp"
             android:layout_marginTop="36dp"
             android:layout_marginEnd="64dp"
-            android:background="@drawable/cancel_btn"
+            android:background="@drawable/small_btn"
+            android:text="Cancel"
+            android:textColor="#6DAFBC"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/saveRegisterButton"
