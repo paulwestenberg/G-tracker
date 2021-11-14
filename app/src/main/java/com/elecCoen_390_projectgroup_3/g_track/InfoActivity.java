@@ -58,7 +58,7 @@ public class InfoActivity extends AppCompatActivity {
         editSetting.inflate(R.menu.logout_in_login_page, menu);
         return true;
     }
-    //end
+
 
     @Override
     public boolean onOptionsItemSelected( MenuItem item) {
