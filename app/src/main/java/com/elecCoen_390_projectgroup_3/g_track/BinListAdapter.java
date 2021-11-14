@@ -19,11 +19,11 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class BinListAdapter extends ArrayAdapter<Bin> {
-    private static final String TAG = "BinListAdapter";
-    private Context context;
+
+    final Context context;
     int resource;
     DatabaseReference root;
 
@@ -37,14 +37,14 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         //get the bin information:
-        String binCode = getItem(position).getBinCode();
+//        String binCode = getItem(position).getBinCode();
         String binName = getItem(position).getName();
         String binLocation = getItem(position).getBinLocation();
         String binEC = getItem(position).getValue();
 
 
         //create the bin object:
-        Bin bin = new Bin(binCode, binName, binLocation, binEC);
+
 
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resource, parent, false);
@@ -53,10 +53,12 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         TextView binNameTV = (TextView) convertView.findViewById(R.id.bin_name_id);
         TextView binLocationTV = (TextView) convertView.findViewById(R.id.bin_location_id);
         TextView binECTV = (TextView) convertView.findViewById(R.id.bin_estimatedcapacity_id);
-
-        binNameTV.setText("Name: " + binName);
-        binLocationTV.setText("Location: " + binLocation);
-        binECTV.setText("Estimated Capacity: " + binEC + "%");
+        String binNameTVString="Name: " + binName;
+        String binLocationTVString="Location: " + binLocation;
+        String binEstimatedTVString="Estimated Capacity: " + binEC + "%";
+        binNameTV.setText(binNameTVString);
+        binLocationTV.setText(binLocationTVString);
+        binECTV.setText(binEstimatedTVString);
 
         //double EC_double = Double.parseDouble(binEC);
         //now set the image:
@@ -67,7 +69,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (binEC == "N/A"){
+                if (binEC.equals("N/A")){
                     binImageIV.setImageResource(R.drawable.bin_x);
                 }
                 else{
