@@ -27,7 +27,7 @@
             android:background="@drawable/name"
             android:digits="@string/chars"
             android:ems="10"
-            android:hint="Surname"
+            android:hint="@string/SN"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
@@ -47,7 +47,7 @@
             android:layout_marginBottom="10dp"
             android:background="@drawable/password_login"
             android:ems="10"
-            android:hint="Enter current password"
+            android:hint="@string/HECP"
 
             android:inputType="textPersonName|textPassword"
             android:minHeight="48dp"
@@ -66,7 +66,7 @@
 
             android:background="@drawable/password_login"
             android:ems="10"
-            android:hint="Enter new password"
+            android:hint="@string/HENP"
             android:inputType="textPersonName|textPassword"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
@@ -96,49 +96,12 @@
             android:background="@drawable/name"
             android:digits="@string/chars"
             android:ems="10"
-            android:hint="Name"
+            android:hint="@string/N"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
             app:layout_constraintStart_toStartOf="@+id/editTextEditSurname"
             app:layout_constraintTop_toBottomOf="@+id/editTextEditSurname" />
-
-        <!--    <EditText-->
-        <!--        android:id="@+id/deleteEmailEditText"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginTop="12dp"-->
-        <!--        android:ems="10"-->
-        <!--        android:hint="E-mail"-->
-        <!--        android:inputType="textPersonName"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintHorizontal_bias="0.502"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/deleteProfileTextView" />-->
-
-        <!--    <EditText-->
-        <!--        android:id="@+id/deletePasswordEditText"-->
-        <!--        android:layout_width="wrap_content"-->
-        <!--        android:layout_height="wrap_content"-->
-        <!--        android:layout_marginTop="4dp"-->
-        <!--        android:ems="10"-->
-        <!--        android:hint="Password"-->
-        <!--        android:inputType="textPersonName"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintHorizontal_bias="0.502"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/deleteEmailEditText" />-->
-
-        <!--    <TextView-->
-        <!--        android:id="@+id/deleteProfileTextView"-->
-        <!--        android:layout_width="361dp"-->
-        <!--        android:layout_height="39dp"-->
-        <!--        android:layout_marginTop="24dp"-->
-        <!--        android:text="@string/deletemessagecheck"-->
-        <!--        app:layout_constraintEnd_toEndOf="parent"-->
-        <!--        app:layout_constraintHorizontal_bias="0.5"-->
-        <!--        app:layout_constraintStart_toStartOf="parent"-->
-        <!--        app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />-->
 
         <Button
             android:id="@+id/saveEditsButton"
@@ -147,9 +110,9 @@
             android:layout_marginTop="11dp"
             android:background="@drawable/big_btn"
             android:fontFamily="sans-serif-black"
-            android:text="Save Changes"
+            android:text="@string/savechanges"
             android:textAlignment="center"
-            android:textColor="#6DAFBC"
+            android:textColor="@color/btnTextColors"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/editTextEditName"
             app:layout_constraintStart_toEndOf="@+id/editTextEditSurname"
@@ -162,8 +125,8 @@
             android:layout_height="37dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/big_btn"
-            android:text="Change Password"
-            android:textColor="#6DAFBC"
+            android:text="@string/changePassword"
+            android:textColor="@color/btnTextColors"
             app:layout_constraintEnd_toEndOf="@+id/newPasswordEditProfile"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="@+id/newPasswordEditProfile"
@@ -175,7 +138,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
             android:backgroundTint="@color/ScaryRed"
-            android:text="Delete Profile"
+            android:text="@string/DeleteProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"

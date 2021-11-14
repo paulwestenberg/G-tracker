@@ -7,10 +7,10 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:elevation="3dp"
-    android:background="#D3ECDF">
+    android:background="@color/appBackground">
     <ImageView
         android:id="@+id/bin_image_id"
-        android:background="@color/appbackground"
+        android:background="@color/appBackground"
         android:layout_margin="2dp"
         android:layout_weight="2"
 
@@ -21,7 +21,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:background="@color/appbackground"
+        android:background="@color/appBackground"
         android:orientation="vertical"
         android:layout_weight="1"
         android:layout_width="match_parent"
@@ -29,21 +29,21 @@
         <TextView
             android:id="@+id/bin_name_id"
             android:layout_margin="5dp"
-            android:text="Bin Name"
+            android:text="@string/BN"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:id="@+id/bin_location_id"
             android:layout_margin="5dp"
-            android:text="Bin Location"
+            android:text="@string/BL"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>
         <TextView
             android:id="@+id/bin_estimatedcapacity_id"
             android:layout_margin="5dp"
-            android:text="Bin Estimated Capacity"
+            android:text="@string/BEC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>

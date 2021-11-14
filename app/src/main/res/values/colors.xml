@@ -9,6 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="ActionBar">#4CAF50</color>
     <color name="ScaryRed">#FA1B1B</color>
-    <color name="appbackground">#D3ECDF</color>
+    <color name="fd">#6DAFBC</color>
+    <color name="borderTextBoxes">#2FDD92</color>
+    <color name="btnTextColors">#2F86A6</color>
+    <color name="appBackground">#D3ECDF</color>
 </resources>
-
