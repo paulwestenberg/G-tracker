@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ContactUsActivity"
-    android:background="@drawable/background1">
+    android:background="@drawable/background1"
+    tools:context=".view.ContactUsActivity">
 
     <TextView
         android:id="@+id/contactusTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="172dp"
         android:text="@string/contactusName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,10 +22,9 @@
         android:id="@+id/contactusContentTextView"
         android:layout_width="327dp"
         android:layout_height="55dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="44dp"
         android:text="@string/contactustext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.547"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contactusTitleTextView" />
 
@@ -32,11 +32,35 @@
         android:id="@+id/gtrackeremailTextView"
         android:layout_width="135dp"
         android:layout_height="20dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="32dp"
         android:text="@string/GtrackerName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/contactusPhoneNumberTextView"
+        app:layout_constraintStart_toStartOf="@+id/contactusPhoneNumberTextView"
         app:layout_constraintTop_toBottomOf="@+id/contactusContentTextView" />
+
+    <TextView
+        android:id="@+id/contactusPhoneNumberTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/GtrackerPhoneNumber"
+        app:layout_constraintEnd_toEndOf="@+id/teaminfoTextView"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="@+id/teaminfoTextView"
+        app:layout_constraintTop_toBottomOf="@+id/contactusContentContinuedTextView" />
+
+    <TextView
+        android:id="@+id/teaminfoTextView"
+        android:layout_width="220dp"
+        android:layout_height="185dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/TeamInfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/contactusPhoneNumberTextView"
+        app:layout_constraintVertical_bias="0.072" />
 
     <TextView
         android:id="@+id/contactusContentContinuedTextView"
@@ -45,29 +69,8 @@
         android:layout_marginTop="8dp"
         android:text="@string/contactuscontinued"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintHorizontal_bias="0.434"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gtrackeremailTextView" />
 
-    <TextView
-        android:id="@+id/contactusPhoneNumberTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/GtrackerPhoneNumber"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contactusContentContinuedTextView" />
-
-    <TextView
-        android:id="@+id/teaminfoTextView"
-        android:layout_width="220dp"
-        android:layout_height="185dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/TeamInfo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/contactusPhoneNumberTextView" />
 </androidx.constraintlayout.widget.ConstraintLayout>

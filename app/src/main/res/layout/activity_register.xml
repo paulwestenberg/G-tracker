@@ -17,7 +17,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".RegisterActivity">
+        tools:context=".view.RegisterActivity">
 
         <EditText
             android:id="@+id/editTextEditSurname"
@@ -31,6 +31,9 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextName"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,7 +52,7 @@
             android:id="@+id/editTextName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:background="@drawable/name"
             android:digits="@string/chars"
             android:ems="10"
@@ -57,6 +60,9 @@
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextEmail"
             app:layout_constraintTop_toBottomOf="@+id/editTextEditSurname" />
 
@@ -71,6 +77,9 @@
             android:inputType="textWebEmailAddress|textEmailAddress|textEmailSubject"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextPassword"
             app:layout_constraintTop_toBottomOf="@+id/editTextName" />
 
@@ -85,6 +94,7 @@
             android:inputType="textPassword|textWebPassword"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -96,13 +106,16 @@
             android:id="@+id/editTextPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/password_login"
             android:ems="10"
             android:hint="@string/Password"
             android:inputType="textPassword|textWebPassword"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/editTextConfirmPassword"
             app:layout_constraintTop_toBottomOf="@+id/editTextEmail" />
 
@@ -115,6 +128,7 @@
             android:background="@drawable/small_btn"
             android:text="@string/Save"
             android:textColor="@color/btnTextColors"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextConfirmPassword"
             tools:ignore="SpeakableTextPresentCheck" />
@@ -128,6 +142,7 @@
             android:background="@drawable/small_btn"
             android:text="@string/cancel"
             android:textColor="@color/btnTextColors"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toEndOf="@+id/saveRegisterButton"

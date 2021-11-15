@@ -17,24 +17,25 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EditProfileActivity">
+        tools:context=".view.EditProfileActivity">
 
         <EditText
             android:id="@+id/editTextEditSurname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="156dp"
+            android:layout_marginTop="164dp"
             android:background="@drawable/name"
             android:digits="@string/chars"
             android:ems="10"
+            android:gravity="start|fill|center_vertical"
             android:hint="@string/SN"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.248"
-            app:layout_constraintStart_toEndOf="@+id/editTextEditName"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.247"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
@@ -42,19 +43,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
 
-            android:layout_marginStart="32dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:background="@drawable/password_login"
             android:ems="10"
-            android:hint="@string/HECP"
+            android:gravity="start|center_vertical"
 
+            android:hint="@string/HECP"
             android:inputType="textPersonName|textPassword"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
+            android:paddingRight="20dp"
             android:password="true"
             app:layout_constraintBottom_toTopOf="@+id/newPasswordEditProfile"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.248"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/divider" />
 
         <EditText
@@ -62,19 +66,22 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="10dp"
 
+            android:layout_marginBottom="10dp"
             android:background="@drawable/password_login"
             android:ems="10"
+            android:gravity="start|center_vertical"
             android:hint="@string/HENP"
             android:inputType="textPersonName|textPassword"
+
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-
+            android:paddingRight="20dp"
             android:password="true"
             app:layout_constraintBottom_toTopOf="@+id/changepasswordbutton"
-            app:layout_constraintStart_toEndOf="@+id/currentPasswordEditProfile"
-            app:layout_constraintStart_toStartOf="@+id/currentPasswordEditProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.248"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/currentPasswordEditProfile" />
 
         <ProgressBar
@@ -92,44 +99,48 @@
             android:id="@+id/editTextEditName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/name"
             android:digits="@string/chars"
             android:ems="10"
+            android:gravity="start|center_vertical"
             android:hint="@string/N"
             android:inputType="textPersonName"
             android:minHeight="48dp"
             android:paddingLeft="60dp"
-            app:layout_constraintStart_toStartOf="@+id/editTextEditSurname"
+            android:paddingRight="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.248"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/editTextEditSurname" />
 
         <Button
             android:id="@+id/saveEditsButton"
             android:layout_width="152dp"
             android:layout_height="40dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="12dp"
             android:background="@drawable/big_btn"
             android:fontFamily="sans-serif-black"
             android:text="@string/savechanges"
             android:textAlignment="center"
             android:textColor="@color/btnTextColors"
             android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@+id/editTextEditName"
-            app:layout_constraintStart_toEndOf="@+id/editTextEditSurname"
-            app:layout_constraintStart_toStartOf="@+id/editTextEditName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/editTextEditName" />
 
         <Button
             android:id="@+id/changepasswordbutton"
             android:layout_width="204dp"
             android:layout_height="37dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             android:background="@drawable/big_btn"
             android:text="@string/changePassword"
             android:textColor="@color/btnTextColors"
-            app:layout_constraintEnd_toEndOf="@+id/newPasswordEditProfile"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="@+id/newPasswordEditProfile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.377"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
             app:layout_constraintTop_toBottomOf="@+id/newPasswordEditProfile" />
 
         <Button
@@ -139,10 +150,12 @@
             android:layout_marginTop="60dp"
             android:backgroundTint="@color/ScaryRed"
             android:text="@string/DeleteProfile"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.464"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/divider2" />
+            app:layout_constraintHorizontal_bias="0.406"
+            app:layout_constraintStart_toStartOf="@+id/guideline6"
+            app:layout_constraintTop_toBottomOf="@+id/divider2"
+            app:layout_constraintVertical_bias="0.0" />
 
         <ProgressBar
             android:id="@+id/progressBarEditProfile"
@@ -175,6 +188,13 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/changepasswordbutton" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="40dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

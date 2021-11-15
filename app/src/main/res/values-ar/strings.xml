@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">المتتبع G</string>
+    <string name="welcomeInfoId"> صفحه المعلومات</string>
+    <string name="loginName"> صفحه المعلومات </string>
+    <string name="logIn"> الدخول </string>
+    <string name="registerName"> تسجيل الدخول </string>
+    <string name="logout_button"> صفحه الخروج </string>
+    <string name="logouttext"> خروج</string>
+    <string name="forgotPassword"> صفحه كلمة السر المفقودة </string>
+    <string name="Password"> كلمةالسر </string>
+    <string name="Save"> حفظ </string>
+    <string name="cancel"> الغاء</string>
+    <string name="Welcome"> اهلا وسهلا   </string>
+    <string name="Register"> تسجيل</string>
+    <string name="Delete"> مسح</string>
+    <string name="Dismiss"> رفض</string>
+    <string name="now"> الان!</string>
+
+    <string name="ResetPassword"> اعادة تعيين كلمة السر</string>
+    <string name="changePassword">  تغيير كلمة السر </string>
+    <string name="PCS"> تم حفظ التغيير</string>
+    <string name="DHAA"> لا يوجد لديكم حساب </string>
+    <string name="FP"> فقدان كلمة السر </string>
+    <string name="GtrackerName">gtracker@gmail.com </string>
+    <string name="GtrackerPhoneNumber">514-663-1313 </string>
+    <string name="AboutGtracker"> بخصوص المتتبع G </string>
+
+    <string name="editProfile"> صفحة تعديل الملف الشخصي</string>
+    <string name="editprofiletext"> تعديل الملف الشخصي</string>
+    <string name="NHFTCU"> بحاجة الى المساعدة في العثور على الرمز: </string>
+    <string name="BEC"> حجم الحاوية المقدرة: </string>
+    <string name="ECForJava"> الحجم المقدر:  </string>
+    <string name="DUS"> تم حذف المستخدم بنجاح</string>
+    <string name="BHBSTD"> تم حفظ الحاوية في قاعدة البيانات</string>
+    <string name="ISTBCIIONITSY"> ان رمز الحاوية غير صحيح او لا يوجد في النظام</string>
+    <string name="deletemessagecheck"> اذا كنت تريد حذف الحساب الشخصي يجب ادخال البريد الالكتروني وكلمة السر المطابقة له ثم الضغط على كلمة حذف </string>
+
+    <string name="aboutName"> صفحة التفاصيل</string>
+    <string name="FITSP"> يجب وضع الاسم رجاّ!</string>
+    <string name="FITNP"> يجب وضع المنية رجاّ!</string>
+    <string name="FTEMP"> يجب وضع البريد الالكتروني رجاّ!</string>
+    <string name="FTPP"> يجب وضع كلمة السر رجاّ!</string>
+    <string name="PETUN"> يجب وضع اسم المستخدم رجاّ!</string>
+    <string name="PETP"> يجب وضع كلمة السر رجاّ!</string>
+    <string name="PEYCP"> يجب وضع كلمة السرالحالية رجاّ!</string>
+    <string name="PCYEMAP"> يجب تفقد البريد الالكتروني او كلمة السر</string>
+    <string name="PEAVEM"> يجب تزويد بريد الاكتروني مفعل </string>
+    <string name="PEYNP"> يجب وضع كلمة السر رجاّ!</string>
+    <string name="TPSB6C"> كلمة السر يجب ان تتحتوي على اكثر من 6 رموز</string>
+    <string name="YCPHTBMT6C"> كلمة السر الحاليه يجب ان تتحتوي على اكثر من 6 رموز</string>
+    <string name="YNPHTBMT6C"> كلمة السر الجديدة يجب ان تتحتوي على اكثر من 6 رموز</string>
+    <string name="TNPIS"> كلمة السر مطابقة! </string>
+    <string name="TPSBTS"> كلمة السر يجب ان تكون مطابقة </string>
+    <string name="NPHBS"> تم تعيين كلمة سر جديدة </string>
+    <string name="AF"> فشل المصادقة </string>
+    <string name="FTR"> فشل التزجيل! </string>
+    <string name="TUHBR"> تم تسجيل المستخدم بنجاح</string>
+    <string name="AYS"> هل انت متأكد  </string>
+    <string name="TA"> حاول مرة اخرى </string>
+    <string name="YHBLO"> تم تسجيل الخروج </string>
+
+    <string name="DTAWRICRY"> حذ الحساب سوف ينتج عن حذف جميع المعلومات الحساب </string>
+    <string name="AFTSAYWBATATA"> من النظام ولا يمكنك الدحول مجدداّ </string>
+    <string name="about"> حول</string>
+    <string name="contactusName"> التواصل معنا </string>
+    <string name="HEM"> البريد الاكتروني</string>
+    <string name="EMIR"> البريد الاكتروني مطلوب </string>
+    <string name="CYETRTP"> تفقد بريدك الاكتروني لاعادة كلمة السر </string>
+    <string name="HCP"> تأكيد كلمه السر </string>
+    <string name="CYPP"> يجب تأكيد كلمه السر رجاّ!</string>
+    <string name="HEYEM"> البريد الاكتروني </string>
+    <string name="HENP"> كلمة السر </string>
+    <string name="HECP"> كلمة السر الحالية </string>
+    <string name="HEBC"> ادخل رمز الحاوية </string>
+    <string name="HEBN"> ادخل اسم الحاوية</string>
+    <string name="HEL"> ادخل  موقع الحاوية</string>
+    <string name="BN"> اسم الحاوية </string>
+    <string name="BL"> موقع الحاوية </string>
+    <string name="BLForJava"> الموقع : </string>
+    <string name="LOAAS"> قائمة الحساسات الموجودة :</string>
+    <string name="LOUB"> List of User\'s Bins </string>
+    <string name="TV">TextView</string>
+    <string name="SN"> الاسم </string>
+    <string name="N"> الكنية  </string>
+    <string name="Percentage"> % </string>
+    <string name="NameForJava"> الاسم : </string>
+
+
+    <string name="savechanges"> حفض التغييرات </string>
+    <string name="DeleteProfile"> حذف الحساب </string>
+    <string name="chars">"–‘ضصثقفغعهخحجدذشسيبلاتنمكطظزوةىلارؤءئ"</string>
+
+    <string name="abouttext">المتتبع G هو عبارة عن جهاز يستطيع معرفه الحجم المملؤ من حاوية النفايات وبامكنه ارسال البيانات الى تطبيك الجوال الذي يستحدمه العامل على النظافه فعلى عامل النظافة النظر الى التبيق لمعرفة موقع الحاوية الممتلئه والذهاب اليها مباسراّ لتفريغها</string>
+    <string name="contactustext"> اذا كان لديك سؤال او تعليق او مقترح او استفسارات فلا يجب عليك ان تتردد للتواصل معنا على : </string>
+
+    <string name="contactuscontinued"> اذا كنت تود الاتصال فهذا من دواعي سرورنا!  </string>
+    <string name="TeamInfo">
+        اعضاء الفريق : \n\n
+        Mohammed Al-Taie, 40097284 \n
+        Paul Westenberg, 40087074 \n
+        Erfan Reza, 40080730 \n
+        Saro Nokhoudian, 40073669 \n
+        Rifadul Haque, 40107346 \n
+        Jean Mardini, 40031904 \n\n
+
+        Scrum Master:\n
+        Mohammed Sehab\n
+    </string>
+</resources>

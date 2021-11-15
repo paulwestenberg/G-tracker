@@ -10,39 +10,39 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gtracker">
         <activity
-            android:name=".Bin"
+            android:name=".model.Bin"
             android:exported="false" />
         <activity
-            android:name=".EditProfileActivity"
+            android:name=".view.EditProfileActivity"
             android:exported="false"
             android:label="@string/editProfile"
-            android:parentActivityName=".InfoActivity" />
+            android:parentActivityName=".view.InfoActivity" />
         <activity
-            android:name=".ContactUsActivity"
+            android:name=".view.ContactUsActivity"
             android:exported="false"
             android:label="@string/contactusName"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".AboutActivity"
+            android:name=".view.AboutActivity"
             android:exported="false"
             android:label="@string/aboutName"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".ForgotPasswordActivity"
+            android:name=".view.ForgotPasswordActivity"
             android:exported="false"
             android:label="@string/forgotPassword"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".RegisterActivity"
+            android:name=".view.RegisterActivity"
             android:exported="false"
             android:label="@string/registerName"
-            android:parentActivityName=".MainActivity" />
+            android:parentActivityName=".view.MainActivity" />
         <activity
-            android:name=".InfoActivity"
+            android:name=".view.InfoActivity"
             android:exported="false"
             android:label="@string/loginName" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
