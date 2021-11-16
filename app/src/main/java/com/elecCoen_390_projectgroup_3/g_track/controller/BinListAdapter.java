@@ -45,9 +45,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         String binEC = getItem(position).getValue();
         String binC = getItem(position).getBinCode();
 
-
         //create the bin object:
-
 
         LayoutInflater inflater = LayoutInflater.from(context);
         convertView = inflater.inflate(resource, parent, false);
@@ -58,13 +56,12 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         TextView binECTV = (TextView) convertView.findViewById(R.id.bin_estimatedcapacity_id);
         TextView binCTV = (TextView) convertView.findViewById(R.id.bin_code_id);
 
-
         String binNameTVString=
-                context.getApplicationContext().getResources().getString(R.string.NameForJava) + " " + binName;
+                context.getApplicationContext().getResources().getString(R.string.NameForJava) +" "+ binName;
         String binLocationTVString=
-                context.getApplicationContext().getResources().getString(R.string.BLForJava)+ " " + binLocation;
+                context.getApplicationContext().getResources().getString(R.string.BLForJava)+" "+ binLocation;
         String binEstimatedTVString=
-                context.getApplicationContext().getResources().getString(R.string.ECForJava)+ " " +
+                context.getApplicationContext().getResources().getString(R.string.ECForJava)+" "+
                 binEC +context.getApplicationContext().getResources().getString(R.string.Percentage);
         String binCodeTVString = context.getApplicationContext().getResources().getString(R.string.BC)
                 + " " + binC;

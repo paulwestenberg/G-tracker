@@ -48,8 +48,6 @@ public class InfoActivity extends AppCompatActivity {
     private SwipeMenuListView binlistview;
     public TextView welcomeTextView;
 
-
-
     private static final String TAG = "InfoActivity";
 
 
@@ -92,7 +90,6 @@ public class InfoActivity extends AppCompatActivity {
 
 
 
-    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,7 +99,6 @@ public class InfoActivity extends AppCompatActivity {
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
         allbinlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
-
 
         mAuth = FirebaseAuth.getInstance();
         ref= FirebaseDatabase.getInstance().getReference().child("Users");
