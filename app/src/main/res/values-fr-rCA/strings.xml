@@ -114,6 +114,9 @@
         Scrum Master:\n
         Mohammed Sehab\n
     </string>
-
+<!--new string-->
     <string name="BC">Bin Code</string>
+    <string name = "deleteBinFragmentTitle">Deleting this bin will result in completely removing your
+    bin from your account and you won\'t be able to access its information anymore.</string>
+    <string name = "binDeleted">Bin Deleted</string>
 </resources>

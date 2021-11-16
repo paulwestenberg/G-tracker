@@ -45,7 +45,7 @@ import java.util.ArrayList;
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
-    private SwipeMenuListView binlistview;
+    private ListView binlistview;
     public TextView welcomeTextView;
 
     private static final String TAG = "InfoActivity";
@@ -287,6 +287,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         };
 
+        /*
         // set creator
         binlistview.setMenuCreator(creator);
 
@@ -327,6 +328,8 @@ public class InfoActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+         */
     }
 
     //getting the name and surname and displaying a welcome message to the user
