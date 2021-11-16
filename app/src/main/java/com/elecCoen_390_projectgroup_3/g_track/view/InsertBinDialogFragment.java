@@ -34,7 +34,7 @@ public class InsertBinDialogFragment extends DialogFragment {
     protected String binValue;
     protected Button saveBin,cancelBin;
     //ProgressBar progressBarRegister2;
-    String bincodestring, binnumberstring, binlocationstring;
+    String bincodestring, binnamestring, binlocationstring;
     double binvaluedouble=0;
     DatabaseReference ref;
     private FirebaseAuth mAuth;
@@ -61,13 +61,22 @@ public class InsertBinDialogFragment extends DialogFragment {
         saveBin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bin.setbincode(binCode.getText().toString().trim());
-                bin.setbinname(binName.getText().toString().trim());
-                bin.setbinlocation(binLocation.getText().toString().trim());
+                bincodestring = binCode.getText().toString().trim();
+                binnamestring = binName.getText().toString().trim();
+                binlocationstring = binLocation.getText().toString().trim();
+
+                bin.setbincode(bincodestring);
+                bin.setbinname(binnamestring);
+                bin.setbinlocation(binlocationstring);
                 bin.setValue(binValue);
 
 
-                writeNewBinWithListeners(bin);
+                if(bincodestring.isEmpty()){ binCode.setError(getString(R.string.binCodeEmptyString));binCode.requestFocus(); return;}
+                if(binnamestring.isEmpty()){ binName.setError(getString(R.string.binNameEmptyString));binName.requestFocus(); return;}
+                if(binlocationstring.isEmpty()){ binLocation.setError(getString(R.string.binLocationEmptyString));binLocation.requestFocus(); return;}
+                if (!(bincodestring.isEmpty()||binnamestring.isEmpty()||binlocationstring.isEmpty())){
+                    writeNewBinWithListeners(bin);
+                }
 
                 //need to set some constraints making sure the user has enterred accurate information
                 //ref.setValue(sensor);

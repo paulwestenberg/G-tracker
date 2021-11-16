@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.InfoActivity"
-    android:background="@drawable/background1">
+    android:background="@drawable/background1"
+    android:onClick="@string/onclicklist"
+    tools:context=".view.InfoActivity">
 
     <TextView
         android:id="@+id/infoHomeId"

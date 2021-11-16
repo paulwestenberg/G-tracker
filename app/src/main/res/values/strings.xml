@@ -118,4 +118,8 @@
     <string name = "deleteBinFragmentTitle">Deleting this bin will result in completely removing your
     bin from your account and you won\'t be able to access its information anymore.</string>
     <string name = "binDeleted">Bin Deleted</string>
+    <string name = "binCodeEmptyString">Please input a Bin Code</string>
+    <string name = "binNameEmptyString">Please input a Bin Name</string>
+    <string name = "binLocationEmptyString">Please input a Bin Location</string>
+    <string name = "onclicklist">shooo</string>
 </resources>
