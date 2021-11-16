@@ -1,12 +1,16 @@
 package com.elecCoen_390_projectgroup_3.g_track.view;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -18,6 +22,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.baoyz.swipemenulistview.SwipeMenu;
+import com.baoyz.swipemenulistview.SwipeMenuCreator;
+import com.baoyz.swipemenulistview.SwipeMenuItem;
+import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.elecCoen_390_projectgroup_3.g_track.model.Bin;
 import com.elecCoen_390_projectgroup_3.g_track.R;
 import com.elecCoen_390_projectgroup_3.g_track.controller.BinListAdapter;
@@ -37,7 +45,7 @@ import java.util.ArrayList;
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
-    private ListView binlistview;
+    private SwipeMenuListView binlistview;
     public TextView welcomeTextView;
 
 
@@ -247,6 +255,82 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
+
+            @Override
+            public void create(SwipeMenu menu) {
+                // create "open" item
+                SwipeMenuItem openItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                openItem.setBackground(new ColorDrawable(Color.rgb(0xC9, 0xC9,
+                        0xCE)));
+                // set item width
+                openItem.setWidth(300);
+                // set item title
+                openItem.setTitle("Consult Bin");
+                // set item title fontsize
+                openItem.setTitleSize(18);
+                // set item title font color
+                openItem.setTitleColor(Color.WHITE);
+                // add to menu
+                menu.addMenuItem(openItem);
+
+                // create "delete" item
+                SwipeMenuItem deleteItem = new SwipeMenuItem(
+                        getApplicationContext());
+                // set item background
+                deleteItem.setBackground(new ColorDrawable(Color.rgb(0xF9,
+                        0x3F, 0x25)));
+                // set item width
+                deleteItem.setWidth(300);
+                // set a icon
+                deleteItem.setIcon(R.drawable.ic_delete);
+                // add to menu
+                menu.addMenuItem(deleteItem);
+            }
+        };
+
+        // set creator
+        binlistview.setMenuCreator(creator);
+
+        binlistview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                switch (index) {
+                    case 0:
+                        makeText("case 0");
+                        break;
+                    case 1:
+
+                        AlertDialog.Builder dialog = new AlertDialog.Builder(InfoActivity.this);
+                        dialog.setTitle(getString(R.string.AYS));
+                        dialog.setMessage(getString(R.string.deleteBinFragmentTitle));
+                        dialog.setPositiveButton(getString(R.string.Delete), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                //code to delete bin from realtime database and info activity page
+                                makeText(getString(R.string.binDeleted));
+                            }
+                        });
+
+                        dialog.setNegativeButton(getString(R.string.Dismiss), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+
+                        AlertDialog alertDialog = dialog.create();
+                        alertDialog.show();
+
+                        makeText("case 1");
+                        break;
+                }
+                // false : close the menu; true : not close the menu
+                return false;
+            }
+        });
     }
 
     //getting the name and surname and displaying a welcome message to the user

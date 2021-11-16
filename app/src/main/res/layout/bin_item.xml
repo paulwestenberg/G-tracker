@@ -8,15 +8,15 @@
     android:layout_gravity="center"
     android:elevation="3dp"
     android:background="@color/appBackground">
+
     <ImageView
         android:id="@+id/bin_image_id"
-        android:background="@color/appBackground"
+        android:layout_width="305dp"
+        android:layout_height="136dp"
         android:layout_margin="2dp"
-        android:layout_weight="2"
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-    </ImageView>
+        android:layout_weight="2"
+        android:background="@color/appBackground"></ImageView>
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
@@ -44,6 +44,13 @@
             android:id="@+id/bin_estimatedcapacity_id"
             android:layout_margin="5dp"
             android:text="@string/BEC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </TextView>
+        <TextView
+            android:id="@+id/bin_code_id"
+            android:layout_margin="5dp"
+            android:text="@string/BC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
         </TextView>

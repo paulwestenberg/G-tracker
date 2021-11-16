@@ -43,6 +43,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         String binName = getItem(position).getName();
         String binLocation = getItem(position).getBinLocation();
         String binEC = getItem(position).getValue();
+        String binC = getItem(position).getBinCode();
 
 
         //create the bin object:
@@ -55,18 +56,22 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         TextView binNameTV = (TextView) convertView.findViewById(R.id.bin_name_id);
         TextView binLocationTV = (TextView) convertView.findViewById(R.id.bin_location_id);
         TextView binECTV = (TextView) convertView.findViewById(R.id.bin_estimatedcapacity_id);
+        TextView binCTV = (TextView) convertView.findViewById(R.id.bin_code_id);
 
 
         String binNameTVString=
-                context.getApplicationContext().getResources().getString(R.string.NameForJava) + binName;
+                context.getApplicationContext().getResources().getString(R.string.NameForJava) + " " + binName;
         String binLocationTVString=
-                context.getApplicationContext().getResources().getString(R.string.BLForJava)+ binLocation;
+                context.getApplicationContext().getResources().getString(R.string.BLForJava)+ " " + binLocation;
         String binEstimatedTVString=
-                context.getApplicationContext().getResources().getString(R.string.ECForJava)+
+                context.getApplicationContext().getResources().getString(R.string.ECForJava)+ " " +
                 binEC +context.getApplicationContext().getResources().getString(R.string.Percentage);
+        String binCodeTVString = context.getApplicationContext().getResources().getString(R.string.BC)
+                + " " + binC;
         binNameTV.setText(binNameTVString);
         binLocationTV.setText(binLocationTVString);
         binECTV.setText(binEstimatedTVString);
+        binCTV.setText(binCodeTVString);
 
         //double EC_double = Double.parseDouble(binEC);
         //now set the image:

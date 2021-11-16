@@ -33,6 +33,7 @@
     <string name="DUS">Deleted User Successfully,</string>
     <string name="BHBSTD">Bin has been saved to database</string>
     <string name="ISTBCIIONITSY">It seems this bin code is incorrect or not in the system yet</string>
+    <string name="BC">Bin Code: </string>
     <string name="deletemessagecheck">If you would like to delete your profile,
         input your email and password and press Delete Profile</string>
 
@@ -57,7 +58,7 @@
     <string name="FTR">Failed to register! </string>
     <string name="TUHBR">The user has been registered!</string>
     <string name="AYS">Are you sure? </string>
-    <string name="TA">Try agin </string>
+    <string name="TA">Try again </string>
     <string name="YHBLO">You have been logged out </string>
     <string name="DTAWRICRY">Deleting this account will result in completely removing your  </string>
     <string name="AFTSAYWBATATA">account from the system and you won\'t be able to access the app.  </string>
@@ -73,8 +74,8 @@
     <string name="HECP">Enter current password</string>
     <string name="HEBC">Enter Bin Code</string>
     <string name="HEBN">Enter Bin Name</string>
-    <string name="HEL">Enter Location</string>
     <string name="BN">Bin Name</string>
+    <string name="HEL">Enter Location</string>
     <string name="BL">Bin Location</string>
     <string name="BLForJava">Location: </string>
     <string name="LOAAS">List of All Available Sensors:</string>
@@ -113,4 +114,9 @@
         Scrum Master:\n
         Mohammed Sehab\n
     </string>
+
+<!--    new-->
+    <string name = "deleteBinFragmentTitle">Deleting this bin will result in completely removing your
+    bin from your account and you won\'t be able to access its information anymore.</string>
+    <string name = "binDeleted">Bin Deleted</string>
 </resources>
