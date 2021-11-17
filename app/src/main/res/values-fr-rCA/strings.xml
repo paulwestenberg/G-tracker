@@ -123,4 +123,11 @@
     <string name = "binNameEmptyString">Please input a Bin Name</string>
     <string name = "binLocationEmptyString">Please input a Bin Location</string>
     <string name = "onclicklist"> </string>
+    <string name = "editBinString">Edit Bin</string>
+    <string name = "consultBinString">Consult Bin</string>
+    <string name = "thewordbin">Bin</string>
+    <string name = "removedfromaccount">has been removed</string>
+    <string name="saveNewInfoButton">Save Changes</string>
+    <string name="saveNewBC">Save New Bin Code</string>
+    <string name = "editBin">Edit Bin Page</string>
 </resources>

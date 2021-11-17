@@ -46,10 +46,10 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         String binC = getItem(position).getBinCode();
 
         //create the bin object:
-
-        LayoutInflater inflater = LayoutInflater.from(context);
-        convertView = inflater.inflate(resource, parent, false);
-
+        if(convertView == null) {
+            LayoutInflater inflater = LayoutInflater.from(context);
+            convertView = inflater.inflate(resource, parent, false);
+        }
         ImageView binImageIV = (ImageView) convertView.findViewById(R.id.bin_image_id);
         TextView binNameTV = (TextView) convertView.findViewById(R.id.bin_name_id);
         TextView binLocationTV = (TextView) convertView.findViewById(R.id.bin_location_id);

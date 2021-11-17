@@ -10,6 +10,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Gtracker">
         <activity
+            android:name=".view.EditBinActivity"
+            android:exported="false"
+            android:label="@string/editBin"
+            android:parentActivityName=".view.InfoActivity"/>
+        <activity
             android:name=".model.Bin"
             android:exported="false" />
         <activity

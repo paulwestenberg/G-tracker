@@ -54,7 +54,6 @@
             android:minHeight="48dp"
             android:paddingLeft="60dp"
             android:paddingRight="20dp"
-            android:password="true"
             app:layout_constraintBottom_toTopOf="@+id/newPasswordEditProfile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.248"

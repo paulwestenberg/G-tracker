@@ -38,15 +38,20 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+
+import java.sql.ResultSet;
 import java.util.ArrayList;
 
 public class InfoActivity extends AppCompatActivity {
     protected FloatingActionButton addBinFloatingButton;
     private ListView allbinlistview;
-    private ListView binlistview;
+    //private ListView binlistview;
+    private SwipeMenuListView binlistview;
     public TextView welcomeTextView;
+    public int thisposition = 0;
 
     private static final String TAG = "InfoActivity";
 
@@ -144,54 +149,8 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        //display estimated % capacity:
-/*
-        sumOfDistancesTextView.setText("The sum of sensor distances is " + sumOfDistances);
-                estimatedcapacity = ((BinMaxSize-(sumOfDistances/3))/(BinMaxSize))*100;
-                        //(BinMaxSize-(sumOfDistances/3))/BinMaxSize;
-                estimatedCapactityTextView.setText("Estimated Capacity is " + estimatedcapacity + "%");
- */
 
-        //make bin list of the user
-        /*
-        ArrayList<String> list_bin = new ArrayList<>();
-        ArrayAdapter adapter_bin = new ArrayAdapter<String>(this , R.layout.list_item , list_bin);
-
-        binlistview.setAdapter(adapter_bin);
-
-        DatabaseReference reference2 = FirebaseDatabase.getInstance().getReference().child("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins");
-        reference2.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list_bin.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    if (snapshot.child("sensors").child("estimatedcapacity").getValue()!=null){
-                        RoundedValueofEC = String.valueOf(Math.round(
-                                Float.parseFloat(snapshot.child("sensors").child("estimatedcapacity").getValue().toString())
-                        ));
-                    }
-                    list_bin.add(
-                            "Name: " + snapshot.child("Bin Name").getValue()
-                            + "\nLocation: " + snapshot.child("Bin Location").getValue()
-                            + "\nEstimated Capacity: " + RoundedValueofEC
-                            + "%"
-                            );
-                    //reset value of sensor display
-                    RoundedValueofEC = "N/A";
-                }
-                adapter_bin.notifyDataSetChanged();
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-         */
-
-        //attempt to make new list view:
-        //with list_bin:
+        //list that will be displayed to the user:
         ArrayList<Bin> new_list_bin = new ArrayList<>();
         BinListAdapter new_adapter_bin = new BinListAdapter(this, R.layout.bin_item, new_list_bin);
 
@@ -231,15 +190,6 @@ public class InfoActivity extends AppCompatActivity {
                         new_list_bin.add(new_bin);
                     }
 
-
-
-                            /*
-                            "Name: " + snapshot.child("Bin Name").getValue()
-                                    + "\nLocation: " + snapshot.child("Bin Location").getValue()
-                                    + "\nEstimated Capacity: " + RoundedValueofEC
-                                    + "%"
-
-                             */
                     //reset value of sensor display
                     RoundedValueofEC = "N/A";
                 }
@@ -264,7 +214,7 @@ public class InfoActivity extends AppCompatActivity {
                 // set item width
                 openItem.setWidth(300);
                 // set item title
-                openItem.setTitle("Consult Bin");
+                openItem.setTitle(getString(R.string.editBinString));
                 // set item title fontsize
                 openItem.setTitleSize(18);
                 // set item title font color
@@ -287,7 +237,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         };
 
-        /*
+
         // set creator
         binlistview.setMenuCreator(creator);
 
@@ -296,32 +246,51 @@ public class InfoActivity extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
-                        makeText("case 0");
+                        //for editing the bin:
+                        //makeText("case 0");
+                        startActivity(new Intent(InfoActivity.this, EditBinActivity.class));
                         break;
                     case 1:
-
+                        //for deleting the bin:
                         AlertDialog.Builder dialog = new AlertDialog.Builder(InfoActivity.this);
                         dialog.setTitle(getString(R.string.AYS));
                         dialog.setMessage(getString(R.string.deleteBinFragmentTitle));
                         dialog.setPositiveButton(getString(R.string.Delete), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                //code to delete bin from realtime database and info activity page
-                                makeText(getString(R.string.binDeleted));
+                                thisposition = position;
+                                Query specialQuery = reference3.orderByKey().limitToFirst(position+1);
+                                specialQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(DataSnapshot dataSnapshot) {
+                                        for (DataSnapshot Snapshot: dataSnapshot.getChildren()) {
+                                            if (thisposition!=0){
+                                                thisposition--;
+                                            }
+                                            else {
+                                                String bincode = Snapshot.getKey();
+                                                Snapshot.getRef().removeValue();
+                                                makeText((getString(R.string.thewordbin)) + " "
+                                                        + bincode + " " + (getString(R.string.removedfromaccount)));
+                                            }
+                                        }
+                                    }
+                                    @Override
+                                    public void onCancelled(DatabaseError databaseError) {
+                                        Log.e(TAG, "onCancelled", databaseError.toException());
+                                    }
+                                });
                             }
                         });
-
                         dialog.setNegativeButton(getString(R.string.Dismiss), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.dismiss();
                             }
                         });
-
                         AlertDialog alertDialog = dialog.create();
                         alertDialog.show();
-
-                        makeText("case 1");
+                        //makeText("case 1");
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -329,7 +298,7 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-         */
+
     }
 
     //getting the name and surname and displaying a welcome message to the user
