@@ -9,24 +9,10 @@
 
 
     <EditText
-        android:id="@+id/editTextChangeBinId"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:ems="10"
-        android:hint="@string/HEBC"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveNewBinInformationButton" />
-
-    <EditText
         android:id="@+id/editTextChangeBinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
+        android:layout_marginTop="232dp"
         android:ems="10"
         android:hint="@string/HEBN"
         android:inputType="textPersonName"
@@ -51,19 +37,6 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextChangeBinName" />
 
     <Button
-        android:id="@+id/saveNewBinCodeButton"
-        android:layout_width="227dp"
-        android:layout_height="39dp"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/small_btn"
-        android:text="@string/saveNewBC"
-        android:textColor="@color/btnTextColors"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/qrScanTextView" />
-
-    <Button
         android:id="@+id/saveNewBinInformationButton"
         android:layout_width="217dp"
         android:layout_height="42dp"
@@ -71,22 +44,22 @@
         android:background="@drawable/small_btn"
         android:text="@string/saveNewInfoButton"
         android:textColor="@color/btnTextColors"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextChangeLocation" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextChangeLocation"
+        app:layout_constraintVertical_bias="0.148" />
 
-    <TextView
-        android:id="@+id/qrScanTextView"
+    <ProgressBar
+        android:id="@+id/progressBarEditBin"
+        style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="start"
-        android:text="@string/NHFTCU"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextChangeBinId" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <!--    <androidx.constraintlayout.widget.Guideline-->
     <!--        android:id="@+id/guideline2"-->

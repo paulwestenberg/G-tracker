@@ -7,7 +7,9 @@
     android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:elevation="3dp"
-    android:background="@drawable/listitembg">
+    android:background="@drawable/listitembg"
+
+    >
 
     <ImageView
         android:id="@+id/bin_image_id"
@@ -21,7 +23,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginRight="5dp"
-        android:background="@drawable/listitembg"
+
         android:orientation="vertical"
         android:layout_weight="1"
         android:layout_width="match_parent"
