@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background1"
     tools:context=".view.EditBinActivity">
 
 
@@ -25,13 +26,13 @@
         android:id="@+id/editTextChangeBinName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="160dp"
         android:ems="10"
         android:hint="@string/HEBN"
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -51,8 +52,8 @@
 
     <Button
         android:id="@+id/saveNewBinCodeButton"
-        android:layout_width="122dp"
-        android:layout_height="71dp"
+        android:layout_width="227dp"
+        android:layout_height="39dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/small_btn"
         android:text="@string/saveNewBC"
@@ -64,8 +65,8 @@
 
     <Button
         android:id="@+id/saveNewBinInformationButton"
-        android:layout_width="168dp"
-        android:layout_height="44dp"
+        android:layout_width="217dp"
+        android:layout_height="42dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/small_btn"
         android:text="@string/saveNewInfoButton"
