@@ -31,7 +31,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private FirebaseAuth mAuth;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +98,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                         if (task.isSuccessful()){makeText(getString(R.string.TUHBR));
                         progressBarRegister.setVisibility(View.GONE);
-                            startActivity(new Intent(RegisterActivity.this, InfoActivity.class));
+                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
                         // redirection to the login lauoyt
                         }
                         else

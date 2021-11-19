@@ -35,9 +35,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
     ProgressBar progressBar;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -141,11 +138,12 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //        finish();
 //        makeText("Profile Changes Saved");
     }
+
     private void deleteProfileMethod(/*String email,String password*/) {
 
-
         final FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        
+        DatabaseReference realTimeUser = FirebaseDatabase.getInstance().getReference().child("Users")
+                .child(FirebaseAuth.getInstance().getCurrentUser().getUid());
         // Get auth credentials from the user for re-authentication. The example below shows
         // email and password credentials but there are multiple possible providers,
         // such as GoogleAuthProvider or FacebookAuthProvider.
@@ -175,6 +173,7 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                                         public void onComplete(@NonNull Task<Void> task) {
                                             if (task.isSuccessful()) {
                                                 //Log.d("TAG", "User account deleted.");
+                                                realTimeUser.removeValue();
                                                 startActivity(new Intent(EditProfileActivity.this, MainActivity.class));
                                                 makeText(getString(R.string.DUS));
                                             }

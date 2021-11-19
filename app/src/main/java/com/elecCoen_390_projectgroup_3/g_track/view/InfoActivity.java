@@ -52,6 +52,7 @@ public class InfoActivity extends AppCompatActivity {
     private SwipeMenuListView binlistview;
     public TextView welcomeTextView;
     public int thisposition = 0;
+    public String bincode="-1";
 
     private static final String TAG = "InfoActivity";
 
@@ -237,7 +238,6 @@ public class InfoActivity extends AppCompatActivity {
             }
         };
 
-
         // set creator
         binlistview.setMenuCreator(creator);
 
@@ -248,7 +248,31 @@ public class InfoActivity extends AppCompatActivity {
                     case 0:
                         //for editing the bin:
                         //makeText("case 0");
-                        startActivity(new Intent(InfoActivity.this, EditBinActivity.class));
+                        thisposition = position;
+                        Query specialQuery = reference3.orderByKey().limitToFirst(position+1);
+                        specialQuery.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(DataSnapshot dataSnapshot) {
+                                for (DataSnapshot Snapshot: dataSnapshot.getChildren()) {
+                                    if (thisposition!=0){
+                                        thisposition--;
+                                    }
+                                    else {
+                                        bincode = Snapshot.getKey();
+                                        Intent intent = new Intent(InfoActivity.this, EditBinActivity.class);
+                                        Bundle b = new Bundle();
+                                        b.putString("code", bincode); //Your id
+                                        intent.putExtras(b); //Put your id to your next Intent
+                                        startActivity(intent);
+                                    }
+                                }
+                            }
+                            @Override
+                            public void onCancelled(DatabaseError databaseError) {
+                                Log.e(TAG, "onCancelled", databaseError.toException());
+                            }
+                        });
+                        finish();
                         break;
                     case 1:
                         //for deleting the bin:
@@ -297,7 +321,6 @@ public class InfoActivity extends AppCompatActivity {
                 return false;
             }
         });
-
 
     }
 
