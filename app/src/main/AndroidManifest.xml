@@ -14,7 +14,7 @@
             android:name=".view.EditBinActivity"
             android:exported="false"
             android:label="@string/editBin"
-            android:parentActivityName=".view.InfoActivity"/>
+            android:parentActivityName=".view.InfoActivity" />
         <activity
             android:name=".model.Bin"
             android:exported="false"

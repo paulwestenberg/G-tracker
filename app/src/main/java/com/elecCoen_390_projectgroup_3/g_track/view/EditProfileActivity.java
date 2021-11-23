@@ -60,7 +60,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //        deleteProfileButton.setEnabled(false);
         deleteProfileButton.setOnClickListener(this);
 
-
     }
 
     @Override
@@ -86,6 +85,10 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 
         if(surNameEditString.isEmpty()){surnameEditText.setError(getString(R.string.FITSP));surnameEditText.requestFocus(); return;}
         if(nameEditString.isEmpty()){nameEditText.setError(getString(R.string.FITNP));nameEditText.requestFocus(); return;}
+
+        surNameEditString = capitalizeStrings(surNameEditString);
+        nameEditString = capitalizeStrings(nameEditString);
+
         if(!surNameEditString.isEmpty()&& !nameEditString.isEmpty()){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUid = user.getUid();
@@ -124,7 +127,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                             finish();
                             makeText(getString(R.string.NPHBS));
 
-
                         }
                         else{
                             makeText(getString(R.string.AF));
@@ -132,7 +134,6 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
                         }
                     }
                 });
-
 
 //        startActivity(new Intent(this, InfoActivity.class ));
 //        finish();
@@ -219,6 +220,11 @@ public class EditProfileActivity extends AppCompatActivity implements View.OnCli
 //                    }
 //                });
 //    }
+
+    private String capitalizeStrings(String text){
+        String newText = text.substring(0, 1).toUpperCase() + text.substring(1);
+        return newText.trim();
+    }
 
     private void makeText(String s){
         Toast toast = Toast.makeText(this,s,Toast.LENGTH_LONG);

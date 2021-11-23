@@ -41,7 +41,15 @@ public class EditBinActivity extends AppCompatActivity implements View.OnClickLi
 //    }
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(EditBinActivity.this, InfoActivity.class));
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_bin);
 
@@ -85,9 +93,10 @@ public class EditBinActivity extends AppCompatActivity implements View.OnClickLi
 
         BinCodeRef.child("Bin Name").setValue(binNewNameString);
         BinCodeRef.child("Bin Location").setValue(binNewLocationString);
-        startActivity(new Intent(this, InfoActivity.class ));
+        startActivity(new Intent(EditBinActivity.this, InfoActivity.class ));
         finish();
-        makeText("Bin " + binCode + " modified successfully");
+        makeText(getString(R.string.thewordbin) + " " + binCode + " "
+                + getString(R.string.MSString));
     }
 
     private void makeText(String s){

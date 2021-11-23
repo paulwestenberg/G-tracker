@@ -3,14 +3,20 @@ package com.elecCoen_390_projectgroup_3.g_track.view;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -101,6 +107,12 @@ public class InfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+            NotificationChannel channel = new NotificationChannel("My Notification", "My Notification", NotificationManager.IMPORTANCE_DEFAULT);
+            NotificationManager manager = getSystemService(NotificationManager.class);
+            manager.createNotificationChannel(channel);
+        }
+
         welcomeTextView = findViewById(R.id.welcomeMessageTextView);
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
         allbinlistview = findViewById(R.id.SensorListViewid);
@@ -115,6 +127,7 @@ public class InfoActivity extends AppCompatActivity {
         addBinFloatingButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 InsertBinDialogFragment dialog = new InsertBinDialogFragment();
 
                 dialog.show(getSupportFragmentManager(),"InsertBinDialogFragment");
@@ -174,6 +187,12 @@ public class InfoActivity extends AppCompatActivity {
                     if ((snapshot.child("Bin Name").getValue()!=null) &&
                             (snapshot.child("Bin Location").getValue()!=null) &&
                             (snapshot.getKey()!=null)){
+
+                        if (Integer.parseInt(RoundedValueofEC)>=80){
+                            notifyUser(snapshot.child("Bin Name").getValue().toString(),
+                                    snapshot.child("Bin Location").getValue().toString(),
+                                    RoundedValueofEC);
+                        }
 
                         Bin new_bin = new Bin(snapshot.getKey(),
                                 snapshot.child("Bin Name").getValue().toString(),
@@ -264,6 +283,7 @@ public class InfoActivity extends AppCompatActivity {
                                         b.putString("code", bincode); //Your id
                                         intent.putExtras(b); //Put your id to your next Intent
                                         startActivity(intent);
+                                        finish();
                                     }
                                 }
                             }
@@ -272,7 +292,6 @@ public class InfoActivity extends AppCompatActivity {
                                 Log.e(TAG, "onCancelled", databaseError.toException());
                             }
                         });
-                        finish();
                         break;
                     case 1:
                         //for deleting the bin:
@@ -328,8 +347,9 @@ public class InfoActivity extends AppCompatActivity {
     private void setWelcomeMessage(){
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentuid = user.getUid();
-        //get surname and name in a string:
-        ref.child(currentuid).child("surname").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+
+        //get name of the user in a string:
+        ref.child(currentuid).child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -346,7 +366,8 @@ public class InfoActivity extends AppCompatActivity {
             }
         });
 
-        ref.child(currentuid).child("name").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        //add the user's surname:
+        ref.child(currentuid).child("surname").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -361,6 +382,19 @@ public class InfoActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void notifyUser(String name, String location, String cap){
+        NotificationCompat.Builder builder = new NotificationCompat.Builder(InfoActivity.this, "My Notification");
+        builder.setContentTitle("Full Bin");
+        builder.setContentText("Your bin " + name + " at " + location + " is at " + cap + "%"
+        + "\n Consider changing it!");
+        builder.setSmallIcon(R.drawable.logo);
+        builder.setAutoCancel(true);
+
+        NotificationManagerCompat managerCompat = NotificationManagerCompat.from(InfoActivity.this);
+        managerCompat.notify(1, builder.build());
+
     }
 
 private void makeText(String s){

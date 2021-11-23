@@ -123,4 +123,6 @@
     <string name="saveNewInfoButton">Save Changes</string>
     <string name="saveNewBC">Save New Bin Code</string>
     <string name = "editBin">Edit Bin Page</string>
+    <string name = "MSString">modified successfully</string>
+
 </resources>

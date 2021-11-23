@@ -86,6 +86,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         if(passwordString.length()<6){password.setError(getString(R.string.TPSB6C));password.requestFocus(); return;}
         if(confirmPasswordString.isEmpty()){confirmPassword.setError(getString(R.string.CYPP));confirmPassword.requestFocus(); return;}
         if(!confirmPasswordString.equals(passwordString)){confirmPassword.setError(getString(R.string.TPSBTS));confirmPassword.requestFocus(); return;}
+
+        //capitalizing non capitalized names and surname
+        surNameString = capitalizeStrings(surNameString);
+        nameString = capitalizeStrings(nameString);
+
         progressBarRegister.setVisibility(View.VISIBLE);
         mAuth.createUserWithEmailAndPassword(eMailString,passwordString).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
@@ -98,7 +103,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                         if (task.isSuccessful()){makeText(getString(R.string.TUHBR));
                         progressBarRegister.setVisibility(View.GONE);
-                            startActivity(new Intent(RegisterActivity.this, MainActivity.class));
+                            startActivity(new Intent(RegisterActivity.this, InfoActivity.class));
                         // redirection to the login lauoyt
                         }
                         else
@@ -117,6 +122,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         });
 
     }
+
+    private String capitalizeStrings(String text){
+        String newText = text.substring(0, 1).toUpperCase() + text.substring(1);
+        return newText.trim();
+    }
+
     private void makeText(String s){
         Toast toast = Toast.makeText(this,s,Toast.LENGTH_LONG);
         toast.show();
