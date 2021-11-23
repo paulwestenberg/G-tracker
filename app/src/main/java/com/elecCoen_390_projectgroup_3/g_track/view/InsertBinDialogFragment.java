@@ -98,9 +98,6 @@ public class InsertBinDialogFragment extends DialogFragment {
         return view;
     }
 
-    private void getAllSensorValues(){
-
-    }
 
     public void writeNewBinWithListeners(Bin bin) {
 
@@ -112,6 +109,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                     public void onSuccess(Void aVoid) {
                         // Write was successful!
                         // ...
+
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
@@ -119,6 +117,7 @@ public class InsertBinDialogFragment extends DialogFragment {
                     public void onFailure(@NonNull Exception e) {
                         // Write failed
                         // ...
+
                     }
                 });
 

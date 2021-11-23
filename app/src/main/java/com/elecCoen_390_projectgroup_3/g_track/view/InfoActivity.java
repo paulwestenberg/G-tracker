@@ -187,13 +187,13 @@ public class InfoActivity extends AppCompatActivity {
                     if ((snapshot.child("Bin Name").getValue()!=null) &&
                             (snapshot.child("Bin Location").getValue()!=null) &&
                             (snapshot.getKey()!=null)){
-
-                        if (Integer.parseInt(RoundedValueofEC)>=80){
-                            notifyUser(snapshot.child("Bin Name").getValue().toString(),
-                                    snapshot.child("Bin Location").getValue().toString(),
-                                    RoundedValueofEC);
-                        }
-
+                       if (isInteger(RoundedValueofEC)) {
+                           if (Integer.parseInt(RoundedValueofEC) >= 80) {
+                               notifyUser(snapshot.child("Bin Name").getValue().toString(),
+                                       snapshot.child("Bin Location").getValue().toString(),
+                                       RoundedValueofEC);
+                           }
+                       }
                         Bin new_bin = new Bin(snapshot.getKey(),
                                 snapshot.child("Bin Name").getValue().toString(),
                                 snapshot.child("Bin Location").getValue().toString(),
@@ -395,6 +395,15 @@ public class InfoActivity extends AppCompatActivity {
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(InfoActivity.this);
         managerCompat.notify(1, builder.build());
 
+    }
+    private boolean isInteger( String input ) {
+        try {
+            Integer.parseInt( input );
+            return true;
+        }
+        catch( Exception e ) {
+            return false;
+        }
     }
 
 private void makeText(String s){
