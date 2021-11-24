@@ -1,8 +1,10 @@
 package com.elecCoen_390_projectgroup_3.g_track.view;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,6 +27,13 @@ public class EditBinActivity extends AppCompatActivity implements View.OnClickLi
     ProgressBar progressBar;
 
     @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        startActivity(new Intent(EditBinActivity.this, InfoActivity.class));
+        finish();
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
@@ -33,17 +42,22 @@ public class EditBinActivity extends AppCompatActivity implements View.OnClickLi
         Bundle b = getIntent().getExtras();
         binCode = "-1";
         if(b != null)
-        binCode = b.getString("code");
+            binCode = b.getString("code");
+        //makeText("bincode imported: " + binCode);
 
         binNameEditText = findViewById(R.id.editTextChangeBinName);
         binLocationEditText = findViewById(R.id.editTextChangeLocation);
+
         saveNewInformationButton = findViewById(R.id.saveNewBinInformationButton);
         saveNewInformationButton.setOnClickListener(this);
+
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String currentUid = user.getUid();
         BinCodeRef= FirebaseDatabase.getInstance().getReference()
                 .child("Users").child(currentUid).child("User Bins").child(binCode);
+
         progressBar = findViewById(R.id.progressBarEditBin);
+
     }
 
     @Override
