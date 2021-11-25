@@ -115,7 +115,6 @@ public class InfoActivity extends AppCompatActivity {
 
         welcomeTextView = findViewById(R.id.welcomeMessageTextView);
         addBinFloatingButton=findViewById(R.id.floatingActionButtonAddBin);
-        allbinlistview = findViewById(R.id.SensorListViewid);
         binlistview = findViewById(R.id.BinListViewid);
 
         mAuth = FirebaseAuth.getInstance();
@@ -136,6 +135,7 @@ public class InfoActivity extends AppCompatActivity {
 
 
         //make all available bins list -> will be removed later
+        /*
         ArrayList<String> list_allbin = new ArrayList<>();
         ArrayAdapter adapter_allbin = new ArrayAdapter<String>(this , R.layout.list_item , list_allbin);
 
@@ -162,6 +162,8 @@ public class InfoActivity extends AppCompatActivity {
 
             }
         });
+
+         */
 
 
         //list that will be displayed to the user:
