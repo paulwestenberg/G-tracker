@@ -123,5 +123,7 @@
     <string name="saveNewBC">Enregistrer le nouveau code bin</string>
     <string name = "editBin">Modifier la page de la corbeille</string>
     <string name = "MSString">modifié avec succès</string>
-    
+    <string name="charsAndNumbers">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+
+
 </resources>

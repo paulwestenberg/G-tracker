@@ -124,5 +124,6 @@
     <string name="saveNewBC">Save New Bin Code</string>
     <string name = "editBin">Edit Bin Page</string>
     <string name = "MSString">modified successfully</string>
+    <string name="charsAndNumbers">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
 </resources>

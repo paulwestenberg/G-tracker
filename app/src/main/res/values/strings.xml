@@ -89,6 +89,7 @@
     <string name="savechanges">Save Changes</string>
     <string name="DeleteProfile">Delete Profile</string>
     <string name="chars">–‘abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
+    <string name="charsAndNumbers">1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
 
     <string name="abouttext">G-tracker is a device capable of measuring how full a garbage can is and
         transmitting it onto an application where users (employees) can consult to know which garbage

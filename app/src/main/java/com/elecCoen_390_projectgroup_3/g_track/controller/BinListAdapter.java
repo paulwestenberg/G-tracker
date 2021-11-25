@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class BinListAdapter extends ArrayAdapter<Bin> {
@@ -50,11 +51,11 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
             LayoutInflater inflater = LayoutInflater.from(context);
             convertView = inflater.inflate(resource, parent, false);
         }
-        ImageView binImageIV = (ImageView) convertView.findViewById(R.id.bin_image_id);
-        TextView binNameTV = (TextView) convertView.findViewById(R.id.bin_name_id);
-        TextView binLocationTV = (TextView) convertView.findViewById(R.id.bin_location_id);
-        TextView binECTV = (TextView) convertView.findViewById(R.id.bin_estimatedcapacity_id);
-        TextView binCTV = (TextView) convertView.findViewById(R.id.bin_code_id);
+        ImageView binImageIV =  convertView.findViewById(R.id.bin_image_id);
+        TextView binNameTV =  convertView.findViewById(R.id.bin_name_id);
+        TextView binLocationTV =  convertView.findViewById(R.id.bin_location_id);
+        TextView binECTV =  convertView.findViewById(R.id.bin_estimatedcapacity_id);
+        TextView binCTV =  convertView.findViewById(R.id.bin_code_id);
 
         String binNameTVString=
                 context.getApplicationContext().getResources().getString(R.string.NameForJava) +" "+ binName;
@@ -74,7 +75,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         //now set the image:
         root = FirebaseDatabase.getInstance().getReference();
         DatabaseReference reference = root.child("Users")
-                .child(FirebaseAuth.getInstance().getCurrentUser().getUid()).child("User Bins")
+                .child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).child("User Bins")
                 .child("sensors").child("estimatedcapacity");
         reference.addValueEventListener(new ValueEventListener() {
             @Override

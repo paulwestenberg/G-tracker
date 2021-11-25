@@ -389,7 +389,7 @@ public class InfoActivity extends AppCompatActivity {
     private void notifyUser(Context context,String name, String location, String cap){
 
         Intent intent=new Intent(context,InfoActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_IMMUTABLE );
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,100,intent,PendingIntent.FLAG_IMMUTABLE );
         NotificationCompat.Builder builder = new NotificationCompat.Builder(InfoActivity.this, "My Notification");
         builder.setContentTitle("Full Bin");
         builder.setContentText("Your bin " + name + " at " + location + " is at " + cap + "%"
