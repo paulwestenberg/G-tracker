@@ -79,7 +79,7 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                if (binEC.equals("N/A")){
+                if (binEC.equals("N/A") || !(isInteger(binEC))){
                     binImageIV.setImageResource(R.drawable.bin_x);
                 }
                 else{
@@ -110,5 +110,14 @@ public class BinListAdapter extends ArrayAdapter<Bin> {
 
         return convertView;
 
+    }
+    private boolean isInteger( String input ) {
+        try {
+            Integer.parseInt( input );
+            return true;
+        }
+        catch( Exception e ) {
+            return false;
+        }
     }
 }

@@ -191,7 +191,7 @@ public class InfoActivity extends AppCompatActivity {
                             (snapshot.getKey()!=null)){
                        if (isInteger(RoundedValueofEC)) {
                            if (Integer.parseInt(RoundedValueofEC) >= 80) {
-                               notifyUser(snapshot.child("Bin Name").getValue().toString(),
+                               notifyUser(InfoActivity.this,snapshot.child("Bin Name").getValue().toString(),
                                        snapshot.child("Bin Location").getValue().toString(),
                                        RoundedValueofEC);
                            }
@@ -386,14 +386,17 @@ public class InfoActivity extends AppCompatActivity {
         });
     }
 
-    private void notifyUser(String name, String location, String cap){
+    private void notifyUser(Context context,String name, String location, String cap){
+
+        Intent intent=new Intent(context,InfoActivity.class);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this,1,intent,PendingIntent.FLAG_IMMUTABLE );
         NotificationCompat.Builder builder = new NotificationCompat.Builder(InfoActivity.this, "My Notification");
         builder.setContentTitle("Full Bin");
         builder.setContentText("Your bin " + name + " at " + location + " is at " + cap + "%"
         + "\n Consider changing it!");
         builder.setSmallIcon(R.drawable.logo);
         builder.setAutoCancel(true);
-
+        builder.setContentIntent(pendingIntent);
         NotificationManagerCompat managerCompat = NotificationManagerCompat.from(InfoActivity.this);
         managerCompat.notify(1, builder.build());
 

@@ -31,9 +31,9 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/qrScanTextView" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextBinId" />
 
     <EditText
         android:id="@+id/editTextLocation"
@@ -82,19 +82,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/editTextLocation"
         app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/qrScanTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="start"
-        android:text="@string/NHFTCU"
-        app:layout_constraintEnd_toStartOf="@+id/guideline5"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toEndOf="@+id/editTextBinId"
-        app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/editTextBinId" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
