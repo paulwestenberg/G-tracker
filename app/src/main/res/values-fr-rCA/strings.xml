@@ -1,109 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">G-tracker</string>
-    <string name="welcomeInfoId">Information Page</string>
-    <string name="loginName">Information Page </string>
-    <string name="logIn">Login </string>
-    <string name="registerName">Register Page </string>
-    <string name="logout_button">Logout Page </string>
-    <string name="logouttext">Logout</string>
-    <string name="forgotPassword">Forgot Password Page </string>
-    <string name="Password">Password </string>
-    <string name="Save">klsf </string>
-    <string name="cancel">Cancel</string>
-    <string name="Welcome">Welcome   </string>
-    <string name="Register">Register</string>
-    <string name="Delete">Delete</string>
-    <string name="Dismiss">Dismiss</string>
-    <string name="now">now!</string>
-
-    <string name="ResetPassword">Reset Password </string>
-    <string name="changePassword">Change Password </string>
-    <string name="PCS">Profile Changes Saved</string>
-    <string name="DHAA">Don\'t have an account? </string>
-    <string name="FP">Forgot Password? </string>
+    <string name="welcomeInfoId">Page d\'informations</string>
+    <string name="loginName">Page d\'informations</string>
+    <string name="logIn">Connexion </string>
+    <string name="registerName">Page d\'inscription </string>
+    <string name="logout_button">Page de déconnexion </string>
+    <string name="logouttext">Se déconnecter</string>
+    <string name="forgotPassword">Mot de passe oublié </string>
+    <string name="Password">Mot de passe </string>
+    <string name="Save">Registrer </string>
+    <string name="cancel">Annuler</string>
+    <string name="Welcome">Bienvenue   </string>
+    <string name="Register">S\'inscrire</string>
+    <string name="Delete">Effacer</string>
+    <string name="Dismiss">Rejeter</string>
+    <string name="now">maintenant!</string>
+    <string name="ResetPassword">réinitialiser  </string>
+    <string name="changePassword">Changer   </string>
+    <string name="PCS">Modifications de profil enregistrées</string>
+    <string name="DHAA">Vous n\'avez pas de compte ? </string>
+    <string name="FP">Mot de passe oublié? </string>
     <string name="GtrackerName">gtracker@gmail.com </string>
     <string name="GtrackerPhoneNumber">514-663-1313 </string>
-    <string name="AboutGtracker">About G-tracker </string>
-
-    <string name="editProfile">Edit Profile Page</string>
-    <string name="editprofiletext">Edit Profile</string>
-    <string name="NHFTCU">Need help finding the code use: </string>
-    <string name="BEC">Bin Estimated Capacity </string>
-    <string name="ECForJava">Estimated Capacity:  </string>
-    <string name="DUS">Deleted User Successfully,</string>
-    <string name="BHBSTD">Bin has been saved to database</string>
-    <string name="ISTBCIIONITSY">It seems this bin code is incorrect or not in the system yet</string>
-    <string name="deletemessagecheck">If you would like to delete your profile,
-        input your email and password and press Delete Profile</string>
-
-    <string name="aboutName">About page</string>
-    <string name="FITSP">Fill the Surname Please!</string>
-    <string name="FITNP">Fill the Name Please!</string>
-    <string name="FTEMP">Fill the E-mail Please!</string>
-    <string name="FTPP">Fill the Password Please!</string>
-    <string name="PETUN">Please enter the user Name!</string>
-    <string name="PETP">Please enter the password!</string>
-    <string name="PEYCP">Please Enter your current password</string>
-    <string name="PCYEMAP">Please check your E-mail and Password!</string>
-    <string name="PEAVEM">Please enter a valid E-mail </string>
-    <string name="PEYNP">Please Enter your new password</string>
-    <string name="TPSB6C">The password should be more then 6 characters</string>
-    <string name="YCPHTBMT6C">Your current password has to be more than 6 Characters</string>
-    <string name="YNPHTBMT6C">Your new password has to be more than 6 Characters</string>
-    <string name="TNPIS">the new password is similar! </string>
-    <string name="TPSBTS">The password should be the same</string>
-    <string name="NPHBS">New password has been set </string>
-    <string name="AF">Authentication failed </string>
-    <string name="FTR">Failed to register! </string>
-    <string name="TUHBR">The user has been registered!</string>
-    <string name="AYS">Are you sure? </string>
-    <string name="TA">Try agin </string>
-    <string name="YHBLO">You have been logged out </string>
-    <string name="DTAWRICRY">Deleting this account will result in completely removing your  </string>
-    <string name="AFTSAYWBATATA">account from the system and you won\'t be able to access the app.  </string>
-    <string name="about">About</string>
-    <string name="contactusName">Contact Us</string>
-    <string name="HEM">E-mail</string>
-    <string name="EMIR">E_mail is required </string>
-    <string name="CYETRTP">Check your email to reset the password! </string>
-    <string name="HCP">Confirm Password</string>
-    <string name="CYPP">Confirm your Password please!</string>
-    <string name="HEYEM">Enter your E-mail</string>
-    <string name="HENP">Enter new password</string>
-    <string name="HECP">Enter current password</string>
-    <string name="HEBC">Enter Bin Code</string>
-    <string name="HEBN">Enter Bin Name</string>
-    <string name="HEL">Enter Location</string>
-    <string name="BN">Bin Name</string>
-    <string name="BL">Bin Location</string>
-    <string name="BLForJava">Location: </string>
-    <string name="LOAAS">List of All Available Sensors:</string>
-    <string name="LOUB">List of User\'s Bins</string>
-    <string name="TV">TextView</string>
-    <string name="SN">Surname</string>
-    <string name="N">Name</string>
+    <string name="AboutGtracker">À propos de G-tracker</string>
+    <string name="editProfile">Modifier la page de profil</string>
+    <string name="editprofiletext">Editer le profil</string>
+    <string name="NHFTCU">Besoin d\'aide pour trouver l\'utilisation du code: </string>
+    <string name="BEC">Capacité estimée du bac </string>
+    <string name="ECForJava">Capacité estimée:  </string>
+    <string name="DUS">Utilisateur supprimé avec succès,</string>
+    <string name="BHBSTD">La corbeille a été enregistrée dans la base de données</string>
+    <string name="ISTBCIIONITSY">Il semble que ce code bin soit incorrect ou pas encore dans le système</string>
+    <string name="deletemessagecheck">Si vous souhaitez supprimer votre profil,entrez votre e-mail et votre mot de passe et appuyez sur Supprimer le profil</string>
+    <string name="aboutName">À propos de la page</string>
+    <string name="FITSP">Remplissez le nom de famille s\'il vous plaît!</string>
+    <string name="FITNP">Remplissez le nom s\'il vous plaît!</string>
+    <string name="FTEMP">Remplissez l\'e-mail s\'il vous plaît!</string>
+    <string name="FTPP">Remplissez le mot de passe s\'il vous plaît !</string>
+    <string name="PETUN">Veuillez saisir le nom d\'utilisateur!</string>
+    <string name="PETP">S\'il vous plaît entrer le mot de passe!</string>
+    <string name="PEYCP">Veuillez saisir votre mot de passe actuel</string>
+    <string name="PCYEMAP">Veuillez vérifier votre e-mail et votre mot de passe!</string>
+    <string name="PEAVEM">Veuillez entrer un e-mail valide </string>
+    <string name="PEYNP">Veuillez saisir votre nouveau mot de passe</string>
+    <string name="TPSB6C">Le mot de passe doit comporter plus de 6 caractères</string>
+    <string name="YCPHTBMT6C">Votre mot de passe actuel doit comporter plus de 6 caractères</string>
+    <string name="YNPHTBMT6C">Votre nouveau mot de passe doit comporter plus de 6 caractères</string>
+    <string name="TNPIS">le nouveau mot de passe est similaire ! </string>
+    <string name="TPSBTS">Le mot de passe doit être le même</string>
+    <string name="NPHBS">Un nouveau mot de passe a été défini </string>
+    <string name="AF">Authentification échouée </string>
+    <string name="FTR">Échec de l\'inscription! </string>
+    <string name="TUHBR">L\'utilisateur a été enregistré !</string>
+    <string name="AYS">Êtes-vous sûr? </string>
+    <string name="TA">Réessayer </string>
+    <string name="YHBLO">vous avez été déconnecté </string>
+    <string name="DTAWRICRY">La suppression de ce compte entraînera la suppression complète de votre  </string>
+    <string name="AFTSAYWBATATA">compte du système et vous ne pourrez pas accéder à l\'application.  </string>
+    <string name="about">Sur</string>
+    <string name="contactusName">Nous contacter</string>
+    <string name="HEM">courrier électronique</string>
+    <string name="EMIR">courrier électronique est requis </string>
+    <string name="CYETRTP">Vérifiez votre courrier électronique pour réinitialiser le mot de passe!</string>
+    <string name="HCP">Confirmez mot de passe</string>
+    <string name="CYPP">Confirmez votre mot de passe s\'il vous plaît!</string>
+    <string name="HEYEM">le courrier électronique</string>
+    <string name="HENP">Nouveau mot de passe</string>
+    <string name="HECP">Mot de passe actuel</string>
+    <string name="HEBC">Entrez le code poubelle</string>
+    <string name="HEBN">Entrez le nom du bac</string>
+    <string name="HEL">Entrer l\'emplacement</string>
+    <string name="BN">Nom du bac</string>
+    <string name="BL">Emplacement du bac</string>
+    <string name="BLForJava">Emplacement: </string>
+    <string name="LOAAS">Liste de tous les capteurs disponibles:</string>
+    <string name="LOUB">Liste des bacs de l\'utilisateur</string>
+    <string name="TV">Affichage</string>
+    <string name="SN">Nom de famille</string>
+    <string name="N">Nom</string>
     <string name="Percentage">%</string>
-    <string name="NameForJava">Name: </string>
-
-
-    <string name="savechanges">Save Changes</string>
-    <string name="DeleteProfile">Delete Profile</string>
-    <string name="chars">–‘abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"</string>
-
-    <string name="abouttext">G-tracker is a device capable of measuring how full a garbage can is and
-        transmitting it onto an application where users (employees) can consult to know which garbage
-        bin needs changing. It also acts as a data collection for a commercial area to potentially modify
-        the location of garbage cans that are often empty, or add garbage cans to locations where they
-        are often full. It is a project born out of Concordia University in Montreal, Canada by
-        6 computer and electrical engineers. Our hopes are that this project will facilitate the job
-        of all cleaning personel and further keep the world clean. Let us know if you have any
-        questions or suggestions by contacting us through our contact us page.</string>
-    <string name="contactustext">If you have any questions, comments, suggestions or business inquiries,
-        please do not hesitate to contact us at:</string>
-    <string name="contactuscontinued"> Or if you wish to call, please do so at: </string>
+    <string name="NameForJava">Nom: </string>
+    <string name="savechanges">Sauvegarder</string>
+    <string name="DeleteProfile">Supprimer </string>
+    <string name="chars"> abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
+    <string name="abouttext"> G-tracker est un appareil capable de mesurer le niveau de remplissage
+        d\'une poubelle et le transmettre sur une application où les utilisateurs
+        (employés) peuvent consulter pour savoir quels poubelles a besoin d\'être changé.\n
+        C\'est un projet né de l\'Université Concordia à Montréal,
+        Canada par 6 ingénieurs informaticiens et électriciens.
+        Nous espérons que ce projet facilitera le travail de tout le personnel
+        de nettoyage et de garder le monde propre. Faites-nous savoir
+        si vous en avez questions ou suggestions en nous contactant via notre page contactez-nous.
+    </string>
+    <string name="contactustext">Si vous avez des questions, des commentaires, des suggestions ou des demandes commerciales,\n
+        n\'hésitez pas à nous contacter au :</string>
+    <string name="contactuscontinued"> Ou si vous souhaitez appeler, veuillez le faire à: </string>
     <string name="TeamInfo">
-        Project Team Members: \n\n
+       Membres de l\'équipe de projet: \n\n
         Mohammed Al-Taie, 40097284 \n
         Paul Westenberg, 40087074 \n
         Erfan Reza, 40080730 \n
@@ -114,22 +108,21 @@
         Scrum Master:\n
         Mohammed Sehab\n
     </string>
-<!--new string-->
-    <string name="BC">Bin Code</string>
-    <string name = "deleteBinFragmentTitle">Deleting this bin will result in completely removing your
-    bin from your account and you won\'t be able to access its information anymore.</string>
-    <string name = "binDeleted">Bin Deleted</string>
-    <string name = "binCodeEmptyString">Please input a Bin Code</string>
-    <string name = "binNameEmptyString">Please input a Bin Name</string>
-    <string name = "binLocationEmptyString">Please input a Bin Location</string>
+    <string name="BC">Code Bin</string>
+    <string name = "deleteBinFragmentTitle">La suppression de ce bac entraînera la suppression complète de votre bin de votre compte et vous ne pourrez plus accéder à ses informations.</string>
+    <string name = "binDeleted">Corbeille supprimée</string>
+    <string name = "binCodeEmptyString">Veuillez saisir un code poubelle</string>
+    <string name = "binNameEmptyString">Veuillez saisir un nom de bac</string>
+    <string name = "binLocationEmptyString">Veuillez saisir un emplacement de bac</string>
     <string name = "onclicklist"> </string>
-    <string name = "editBinString">Edit Bin</string>
-    <string name = "consultBinString">Consult Bin</string>
-    <string name = "thewordbin">Bin</string>
-    <string name = "removedfromaccount">has been removed</string>
-    <string name="saveNewInfoButton">Save Changes</string>
-    <string name="saveNewBC">Save New Bin Code</string>
-    <string name = "editBin">Edit Bin Page</string>
-    <string name = "MSString">modified successfully</string>
+    <string name = "editBinString">Modifier la corbeille</string>
+    <string name = "consultBinString">Consulter le bac</string>
+    <string name = "thewordbin">Poubelle</string>
+    <string name = "removedfromaccount">a été retiré</string>
+    <string name="saveNewInfoButton">Sauvegarder</string>
+    <string name="saveNewBC">Enregistrer le nouveau code bin</string>
+    <string name = "editBin">Modifier la page de la corbeille</string>
+    <string name = "MSString">modifié avec succès</string>
+
 
 </resources>
